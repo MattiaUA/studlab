@@ -1,0 +1,92 @@
+[
+    {
+      "Id": 1,
+      "Nombre": "Ana García",
+      "Email": "ana@example.com",
+      "Telefono": "+1234567890",
+      "Contraseña": "contraseña123",
+      "Carrera de grado": "Ingeniería Civil",
+      "Foto URL": "https://example.com/ana_foto.jpg"
+    },
+    {
+      "Id": 2,
+      "Nombre": "Juan Martínez",
+      "Email": "juan@example.com",
+      "Telefono": "+1987654321",
+      "Contraseña": "segura456",
+      "Carrera de grado": "Medicina",
+      "Foto URL": "https://example.com/juan_foto.jpg"
+    },
+    {
+      "Id": 3,
+      "Nombre": "María López",
+      "Email": "maria@example.com",
+      "Telefono": "+1112233445",
+      "Contraseña": "maria1234",
+      "Carrera de grado": "Psicología",
+      "Foto URL": "https://example.com/maria_foto.jpg"
+    },
+    {
+      "Id": 4,
+      "Nombre": "Pedro Rodríguez",
+      "Email": "pedro@example.com",
+      "Telefono": "+1555666777",
+      "Contraseña": "pedro567",
+      "Carrera de grado": "Administración de Empresas",
+      "Foto URL": "https://example.com/pedro_foto.jpg"
+    },
+    {
+      "Id": 5,
+      "Nombre": "Laura Sánchez",
+      "Email": "laura@example.com",
+      "Telefono": "+1222333444",
+      "Contraseña": "laura789",
+      "Carrera de grado": "Derecho",
+      "Foto URL": "https://example.com/laura_foto.jpg"
+    },
+    {
+      "Id": 6,
+      "Nombre": "Carlos Martínez",
+      "Email": "carlos@example.com",
+      "Telefono": "+1777888999",
+      "Contraseña": "carlos456",
+      "Carrera de grado": "Ingeniería Eléctrica",
+      "Foto URL": "https://example.com/carlos_foto.jpg"
+    },
+    {
+      "Id": 7,
+      "Nombre": "Sofía Gómez",
+      "Email": "sofia@example.com",
+      "Telefono": "+1999888777",
+      "Contraseña": "sofia123",
+      "Carrera de grado": "Arquitectura",
+      "Foto URL": "https://example.com/sofia_foto.jpg"
+    },
+    {
+      "Id": 8,
+      "Nombre": "Daniel Pérez",
+      "Email": "daniel@example.com",
+      "Telefono": "+1666777888",
+      "Contraseña": "daniel789",
+      "Carrera de grado": "Biología",
+      "Foto URL": "https://example.com/daniel_foto.jpg"
+    },
+    {
+      "Id": 9,
+      "Nombre": "Lucía Fernández",
+      "Email": "lucia@example.com",
+      "Telefono": "+1888777666",
+      "Contraseña": "lucia456",
+      "Carrera de grado": "Economía",
+      "Foto URL": "https://example.com/lucia_foto.jpg"
+    },
+    {
+      "Id": 10,
+      "Nombre": "Javier Ruiz",
+      "Email": "javier@example.com",
+      "Telefono": "+1777666555",
+      "Contraseña": "javier123",
+      "Carrera de grado": "Informática",
+      "Foto URL": "https://example.com/javier_foto.jpg"
+    }
+  ]
