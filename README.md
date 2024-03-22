@@ -1,1 +1,1 @@
-# stulab
+# studlab
