@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ana García",
+    "email": "ana@example.com",
+    "telefono": "+1234567890",
+    "pwd": "contraseña123",
+    "carrera": "Ingeniería Civil",
+    "fotourl": "https://picsum.photos/id/1/150/150"
+  },
+  {
+    "id": 2,
+    "nombre": "Juan Martínez",
+    "email": "juan@example.com",
+    "telefono": "+1987654321",
+    "pwd": "segura456",
+    "Carrera de grado": "Medicina",
+    "fotourl": "https://picsum.photos/id/2/150/150"
+  },
+  {
+    "id": 3,
+    "nombre": "María López",
+    "email": "maria@example.com",
+    "telefono": "+1112233445",
+    "pwd": "maria1234",
+    "Carrera de grado": "Psicología",
+    "fotourl": "https://picsum.photos/id/3/150/150"
+  },
+  {
+    "id": 4,
+    "nombre": "Pedro Rodríguez",
+    "email": "pedro@example.com",
+    "telefono": "+1555666777",
+    "pwd": "pedro567",
+    "Carrera de grado": "Administración de Empresas",
+    "fotourl": "https://picsum.photos/id/4/150/150"
+  },
+  {
+    "id": 5,
+    "nombre": "Laura Sánchez",
+    "email": "laura@example.com",
+    "telefono": "+1222333444",
+    "pwd": "laura789",
+    "Carrera de grado": "Derecho",
+    "fotourl": "https://picsum.photos/id/50/150/150"
+  },
+  {
+    "id": 6,
+    "nombre": "Carlos Martínez",
+    "email": "carlos@example.com",
+    "telefono": "+1777888999",
+    "pwd": "carlos456",
+    "Carrera de grado": "Ingeniería Eléctrica",
+    "fotourl": "https://picsum.photos/id/6/150/150"
+  },
+  {
+    "id": 7,
+    "nombre": "Sofía Gómez",
+    "email": "sofia@example.com",
+    "telefono": "+1999888777",
+    "pwd": "sofia123",
+    "Carrera de grado": "Arquitectura",
+    "fotourl": "https://picsum.photos/id/7/150/150"
+  },
+  {
+    "id": 8,
+    "nombre": "Daniel Pérez",
+    "email": "daniel@example.com",
+    "telefono": "+1666777888",
+    "pwd": "daniel789",
+    "Carrera de grado": "Biología",
+    "fotourl": "https://picsum.photos/id/8/150/150"
+  },
+  {
+    "id": 9,
+    "nombre": "Lucía Fernández",
+    "email": "lucia@example.com",
+    "telefono": "+1888777666",
+    "pwd": "lucia456",
+    "Carrera de grado": "Economía",
+    "fotourl": "https://picsum.photos/id/9/150/150"
+  },
+  {
+    "id": 10,
+    "nombre": "Javier Ruiz",
+    "email": "javier@example.com",
+    "telefono": "+1777666555",
+    "pwd": "javier123",
+    "Carrera de grado": "Informática",
+    "fotourl": "https://picsum.photos/id/10/150/150"
+  }
+]
