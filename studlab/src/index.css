@@ -155,3 +155,19 @@ button {
   gap: 20px;
   align-items: center;
 }
+
+.nav-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1em;
+  box-sizing: border-box;
+  border: 1px solid var(--third-color);
+
+  & img {
+    width: 33px;
+    height: 33px;
+  }
+}
