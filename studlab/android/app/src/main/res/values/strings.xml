@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">studlab</string>
+    <string name="title_activity_main">studlab</string>
+    <string name="package_name">edu.ua.studlab</string>
+    <string name="custom_url_scheme">edu.ua.studlab</string>
+</resources>
