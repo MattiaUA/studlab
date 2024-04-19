@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 import DocumentPage from './pages/document-page';
 import NavigationBar from "./components/navigation-bar";
@@ -9,6 +10,9 @@ import UsersData from './exampledata/Users.json';
 import DocumentData from './exampledata/Documents.json'
 
 function App() {
+  StatusBar.setBackgroundColor({ color: '#4966FF' });
+  StatusBar.setStyle({ style: Style.Dark });
+
   return (
     <div>
       <Router>
