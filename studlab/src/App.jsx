@@ -8,6 +8,7 @@ import NavigationBar from "./components/navigation-bar";
 import './App.css';
 import UsersData from './exampledata/Users.json';
 import DocumentData from './exampledata/Documents.json'
+import Home from './components/layouts/home';
 
 function App() {
   setTimeout(() => {
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<DocumentPage data={DocumentData["documentos"][1]} />} />
+          <Route path="/home" element={<Home docData={DocumentData} userData = {UsersData} /> } />
         </Routes>
       </Router>
       <NavigationBar user={UsersData[0]}></NavigationBar>

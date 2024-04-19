@@ -1,0 +1,14 @@
+.preview-img-container {
+    overflow: hidden;
+    height: 80%;
+    position: relative;
+    display: inline-block;
+}
+  
+.profile-pic-prev {
+    position: absolute; 
+    top: 79%;
+    right: 5%;
+    z-index: 1; /* Asegura que la imagen de perfil esté sobre la imagen principal */
+}
+

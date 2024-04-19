@@ -170,4 +170,46 @@ button {
     width: 33px;
     height: 33px;
   }
+.preview-element-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--third-color);
+  border-radius: 10px;
+  width: 180px;
+  height: 280px;
+}
+
+.bg-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.icon-pic {
+  position: absolute; 
+  width: 40px;
+  height: 40px;
+  top: 5%;
+  right: 74%;
+  z-index: 1; /* Asegura que la imagen de perfil esté sobre la imagen principal */
+}
+
+.add-pic {
+  width: 20px;
+  height: 20px;
+  left: 170px;
+  top: 270px;
+}
+
+.disp-flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-container {
+  flex: 1;
+}
+
+.add-img-container {
+  flex: 0.25;
 }
