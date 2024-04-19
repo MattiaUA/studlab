@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { StatusBar, Style } from '@capacitor/status-bar';
 
 import DocumentPage from './pages/document-page';
-import NavigationBar from "./components/navigation-bar";
+import NavigationBar from "./components/partials/navigation-bar";
 
 import './App.css';
 import UsersData from './exampledata/Users.json';

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfilePic from './profile-pic';
+import ProfilePic from '../profile-pic';
 
 function NavigationBar({ user }) {
   return (
