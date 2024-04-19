@@ -5,7 +5,7 @@ import { useMemo } from "react";
  * Puts it togheter looking at boths id.
  * @param {*} docs The JSON document that has the documents of the page
  * @param {*} users The JSON document that has the users of the page
- * @returns The necessary data from the previsualization
+ * @returns The necessary data from the previsualization. Taking out the undefined
  */
 export default function parsePrev(docs, users) {
 
@@ -15,15 +15,17 @@ export default function parsePrev(docs, users) {
 
             if (foundUser) {
                 return {
-                    id: doc.id,
+                    DocId: doc.id,
+                    userId: foundUser.id,
                     title: doc.titulo,
                     docImg: doc.imagendeportada,
                     theme: doc.tema,
                     userName: foundUser.nombre,
-                    userPicture: foundUser.fotourl
+                    userPicture: foundUser.fotourl,
+                    format: doc.formato
                 };
             }
-        });
+        }).filter((item) => item !== undefined);
 
         return combinedData;
     }, [docs, users]);

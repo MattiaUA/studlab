@@ -1,14 +1,11 @@
-import '../../index.css'
-import createPrev from '../../hooks/parsePrev'
+import parsePrev from '../../hooks/parsePrev'
+import Preview from '../partials/preview'
 
 export default function Home(props) {
     const {docData, userData} = props
 
-    const prevData = createPrev(docData, userData)
-    console.log(prevData)
+    const prevData = parsePrev(docData, userData)
     return (
-        <div>
-
-        </div>
+        <Preview data={prevData[0]} />
     )
 }
