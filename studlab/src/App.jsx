@@ -10,8 +10,10 @@ import UsersData from './exampledata/Users.json';
 import DocumentData from './exampledata/Documents.json'
 
 function App() {
-  StatusBar.setBackgroundColor({ color: '#4966FF' });
-  StatusBar.setStyle({ style: Style.Dark });
+  setTimeout(() => {
+    StatusBar.setBackgroundColor({ color: '#4966FF' });
+    StatusBar.setStyle({ style: Style.Dark });
+  }, 500);
 
   return (
     <div>
