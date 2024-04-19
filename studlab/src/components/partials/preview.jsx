@@ -36,5 +36,11 @@ function getFormat(format) {
     return (
       <img src="doc-icon.png" className="icon-pic " />
     )
+  } if (format === 'avi') {
+    return (
+      <img src="video-icon.png" className="icon-pic " />
+    )
+  } else {
+    <img src="image-icon.png" className="icon-pic " />
   }
 }
