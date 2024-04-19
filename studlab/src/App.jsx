@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<DocumentPage data={DocumentData["documentos"][1]} />} />
         </Routes>
       </Router>
-      <NavigationBar></NavigationBar>
+      <NavigationBar user={UsersData[0]}></NavigationBar>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react'
+import ProfilePic from './profile-pic';
 
-function NavigationBar() {
+function NavigationBar({ user }) {
   return (
     <div className="nav-bar">
       <a href={`/`}>
@@ -15,9 +16,7 @@ function NavigationBar() {
       <a href={`notifications/`}>
         <img src="/notification.png" alt="Notifications"></img>
       </a>
-      <a href={`profile`}>
-        <img src="/user.png" alt="Profile"></img>
-      </a>
+      <ProfilePic user={user}></ProfilePic>
     </div>
   )
 }
