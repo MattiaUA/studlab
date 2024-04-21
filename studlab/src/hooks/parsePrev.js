@@ -8,27 +8,28 @@ import { useMemo } from "react";
  * @returns The necessary data from the previsualization. Taking out the undefined
  */
 export default function parsePrev(docs, users) {
+  const prevData = useMemo(() => {
+    const combinedData = docs.documentos
+      .map((doc) => {
+        const foundUser = users.find((user) => user.id === doc.idusuario);
 
-    const prevData = useMemo(() => {
-        const combinedData = docs.documentos.map((doc) => {
-            const foundUser = users.find((user) => user.id === doc.idusuario);
+        if (foundUser) {
+          return {
+            DocId: doc.id,
+            userId: foundUser.id,
+            title: doc.titulo,
+            docImg: doc.imagendeportada,
+            theme: doc.tema,
+            userName: foundUser.nombre,
+            userPicture: foundUser.fotourl,
+            format: doc.formato,
+          };
+        }
+      })
+      .filter((item) => item !== undefined);
 
-            if (foundUser) {
-                return {
-                    DocId: doc.id,
-                    userId: foundUser.id,
-                    title: doc.titulo,
-                    docImg: doc.imagendeportada,
-                    theme: doc.tema,
-                    userName: foundUser.nombre,
-                    userPicture: foundUser.fotourl,
-                    format: doc.formato
-                };
-            }
-        }).filter((item) => item !== undefined);
+    return combinedData;
+  }, [docs, users]);
 
-        return combinedData;
-    }, [docs, users]);
-
-    return prevData;
+  return prevData;
 }

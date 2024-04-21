@@ -19,7 +19,7 @@
 }
 
 #root{
-  min-height: 100%;
+  width: 100%;
 }
 
 html{
@@ -207,31 +207,34 @@ button {
 .carousel-container {
   height: 270px;
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
+  margin: 5px 0px 5px 0px;
 }
 
 .carousel-scroll {
   height: 100%;
   display: flex;
+  gap: 3px;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; /* En internet pone que es para IOs yo ni idea*/
+  margin: 0 0px 0 5px;
 }
 
 
 
 /* For the elements inside the carousel */
 .carousel-container .preview-element-container {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--third-color);
-  border-radius: 10px;
   height: 80%;
+  width: 49%;
+  flex: 0 0 auto;
 }
 .carousel-container .profile-pic {
   top: 70%;
+}
+
+.carousel-container .icon-pic {
+  left: 5%;
 }

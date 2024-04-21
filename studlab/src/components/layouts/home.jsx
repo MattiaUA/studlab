@@ -8,7 +8,7 @@ export default function Home(props) {
     const prevData = parsePrev(docData, userData)
     return (
         <>
-            {/* <Preview data={prevData[0]} /> */}
+            <Preview data={prevData[0]} />
             <PreviewCarrousel data={prevData} />
         </>
     )
