@@ -3,7 +3,6 @@ import "./preview.css"
 
 // - Las letras salen del css
 export default function Preview(data) {
-  console.log(data)
   const { DocId, userId, title, docImg, theme, userName, userPicture, format } = data.data
 
   return (

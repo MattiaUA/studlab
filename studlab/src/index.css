@@ -156,6 +156,8 @@ button {
   align-items: center;
 }
 
+/* For the preview */
+
 .preview-element-container {
   overflow: hidden;
   display: flex;
@@ -198,4 +200,38 @@ button {
 
 .add-img-container {
   flex: 0.25;
+}
+
+/* For the Carousel*/
+
+.carousel-container {
+  height: 270px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+.carousel-scroll {
+  height: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* En internet pone que es para IOs yo ni idea*/
+}
+
+
+
+/* For the elements inside the carousel */
+.carousel-container .preview-element-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--third-color);
+  border-radius: 10px;
+  height: 80%;
+}
+.carousel-container .profile-pic {
+  top: 70%;
 }

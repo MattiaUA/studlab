@@ -13,7 +13,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<DocumentPage data={DocumentData["documentos"][1]}/>} />
-        <Route path="/home" element={<Home docData={DocumentData} userData = {UsersData} /> } />
+        <Route path="/preview" element={<Home docData={DocumentData} userData = {UsersData} /> } />
+        <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData = {UsersData} /> } />
       </Routes>
     </Router>
   );
