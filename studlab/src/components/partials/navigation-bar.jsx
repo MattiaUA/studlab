@@ -1,21 +1,22 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import ProfilePic from '../profile-pic';
 
 function NavigationBar({ user }) {
   return (
     <div className="nav-bar">
-      <a href={`/`}>
+      <Link to="home">
         <img src="/home.png" alt="Home"></img>
-      </a>
-      <a href={`search`}>
+      </Link>
+      <Link to={"search"}>
         <img src="/search.png" alt="Search"></img>
-      </a>
-      <a href={`new`}>
+      </Link>
+      <Link to={"new"}>
         <img src="/plus.png" alt="New"></img>
-      </a>
-      <a href={`notifications/`}>
+      </Link>
+      <Link to={"notifications"}>
         <img src="/notification.png" alt="Notifications"></img>
-      </a>
+      </Link>
       <ProfilePic user={user}></ProfilePic>
     </div>
   )
