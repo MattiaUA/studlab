@@ -3,7 +3,6 @@ import "./preview.css"
 
 // - Las letras salen del css
 export default function Preview(data) {
-  console.log(data)
   const { DocId, userId, title, docImg, theme, userName, userPicture, format } = data.data
 
   return (
@@ -36,5 +35,11 @@ function getFormat(format) {
     return (
       <img src="doc-icon.png" className="icon-pic " />
     )
+  } if (format === 'avi') {
+    return (
+      <img src="video-icon.png" className="icon-pic " />
+    )
+  } else {
+    <img src="image-icon.png" className="icon-pic " />
   }
 }

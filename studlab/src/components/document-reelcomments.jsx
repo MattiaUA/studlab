@@ -11,7 +11,6 @@ function findUser(id) {
 
 function DocumentReelComments({data}){
     const comments = Object.values(data["comentarios"])
-    console.log(comments)
     return (
         <div className="document-comments">
             {comments.map(element => (
