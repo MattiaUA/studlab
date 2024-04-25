@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<DocumentPage data={DocumentData["documentos"][1]}/>} />
         <Route path="/preview" element={<Home docData={DocumentData} userData = {UsersData} /> } />
         <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData = {UsersData} /> } />
+        <Route path="/search" element={<Home docData={DocumentData} userData = {UsersData} /> } />
       </Routes>
     </Router>
   );

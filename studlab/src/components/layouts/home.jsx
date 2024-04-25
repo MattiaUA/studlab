@@ -1,6 +1,7 @@
 import parsePrev from '../../hooks/parsePrev'
 import Preview from '../partials/preview'
 import PreviewCarrousel from '../partials/previewCarousel'
+import SearchBar from '../partials/searchBar'
 
 export default function Home(props) {
     const {docData, userData} = props
@@ -9,7 +10,8 @@ export default function Home(props) {
     return (
         <>
             <Preview data={prevData[0]} />
-            <PreviewCarrousel data={prevData} />
+            {/* <PreviewCarrousel data={prevData} /> */}
+            {/* <SearchBar /> */}
         </>
     )
 }
