@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Capacitor } from '@capacitor/core';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { StatusBar, Style } from '@capacitor/status-bar';
 
@@ -11,10 +12,12 @@ import DocumentData from './exampledata/Documents.json'
 import Home from './components/layouts/home';
 
 function App() {
-  setTimeout(() => {
-    StatusBar.setBackgroundColor({ color: '#4966FF' });
-    StatusBar.setStyle({ style: Style.Dark });
-  }, 500);
+  if (Capacitor.isNativePlatform()) {
+    setTimeout(() => {
+      StatusBar.setBackgroundColor({ color: '#4966FF' });
+      StatusBar.setStyle({ style: Style.Dark });
+    }, 500);
+  }
 
   return (
     <div>
