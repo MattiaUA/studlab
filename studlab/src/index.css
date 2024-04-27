@@ -51,12 +51,10 @@ body{
   min-height: 100%;
   font-family: var(--font-fam);
 }
-
 h1,h2,h3,h4,p{
   font-family: var(--font-fam);
   margin: 0;
 }
-
 button {
   border-radius: 8px;
   border: 2px solid transparent;
@@ -68,8 +66,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-
-
 .profile-pic{
   width: 40px;
   height: 40px;
