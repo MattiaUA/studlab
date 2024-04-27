@@ -288,3 +288,16 @@ button {
 .search-button:hover {
   background-color: var(--third-color)
 }
+
+.usuarios-reel {
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 0 5px;
+
+  & .profile-pic {
+    padding-top: 0.25em;
+    width: 70px;
+    height: fit-content;
+  }
+}
