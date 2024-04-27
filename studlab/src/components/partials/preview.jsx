@@ -1,4 +1,4 @@
-import ProfilePic from "../profile-pic"
+import ProfilePic from "./profile-pic"
 import "./preview.css"
 
 // - Las letras salen del css
