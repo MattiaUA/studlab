@@ -19,7 +19,7 @@
 }
 
 #root{
-  min-height: 100%;
+  width: 100%;
 }
 
 html{
@@ -150,4 +150,123 @@ button {
   justify-content: flex-start;
   gap: 20px;
   align-items: center;
+}
+
+/* For the preview */
+
+.preview-element-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--third-color);
+  border-radius: 10px;
+  width: 180px;
+  height: 280px;
+}
+
+.bg-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.icon-pic {
+  position: absolute; 
+  width: 40px;
+  height: 40px;
+  top: 5%;
+  right: 74%;
+  z-index: 1; /* Asegura que la imagen de perfil esté sobre la imagen principal */
+}
+
+.add-pic {
+  width: 20px;
+  height: 20px;
+  left: 170px;
+  top: 270px;
+}
+
+.disp-flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-container {
+  flex: 1;
+}
+
+.add-img-container {
+  flex: 0.25;
+}
+
+/* For the Carousel*/
+
+.carousel-container {
+  height: 270px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 5px 0px 5px 0px;
+}
+
+.carousel-scroll {
+  height: 100%;
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* En internet pone que es para IOs yo ni idea*/
+  margin: 0 0px 0 5px;
+}
+
+
+
+/* For the elements inside the carousel */
+.carousel-container .preview-element-container {
+  height: 80%;
+  width: 49%;
+  flex: 0 0 auto;
+}
+.carousel-container .profile-pic {
+  top: 70%;
+}
+
+.carousel-container .icon-pic {
+  left: 5%;
+}
+
+/* For the searchbar */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid var(--third-color);
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgb(179 167 167 / 50%);
+}
+
+.search-button {
+  margin-block-start: 10px;
+  padding: 10px;
+  color: var(--secondary-color);
+  border: none;
+  cursor: pointer;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.search-button:hover {
+  background-color: var(--third-color)
 }

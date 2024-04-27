@@ -1,334 +1,334 @@
 {
-    "documentos": [
+  "documentos": [
+    {
+      "titulo": "Proyecto IA",
+      "id": 1,
+      "idusuario": 6,
+      "descripcion": "Proyecto de investigación sobre inteligencia artificial. Este proyecto busca explorar diferentes enfoques en el campo de la inteligencia artificial para mejorar la comprensión de sistemas inteligentes y su aplicación en diversas áreas.",
+      "imagendeportada": "https://picsum.photos/id/478/200/300",
+      "visualizaciones": 1500,
+      "documentourl": "",
+      "formato": "pdf",
+      "carrera": "Ingeniería Informática",
+      "tema": "Introducción a la Inteligencia Artificial",
+      "fecha": "15, 03, 2023",
+      "cantidadcomentarios": 47,
+      "comentarios": [
         {
-            "titulo": "Proyecto IA",
-            "id": 1,
-            "idusuario": 6,
-            "descripcion": "Proyecto de investigación sobre inteligencia artificial. Este proyecto busca explorar diferentes enfoques en el campo de la inteligencia artificial para mejorar la comprensión de sistemas inteligentes y su aplicación en diversas áreas.",
-            "imagendeportada": "",
-            "visualizaciones": 1500,
-            "documentourl": "",
-            "formato": "pdf",
-            "carrera": "Ingeniería Informática",
-            "tema": "Introducción a la Inteligencia Artificial",
-            "fecha": "15, 03, 2023",
-            "cantidadcomentarios": 47,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 2,
-                    "iddocumento": 1,
-                    "comentario": "¡Interesante proyecto! ¿Cuál es el enfoque principal de la investigación? Me gustaría saber más sobre las metodologías utilizadas.",
-                    "fecha": "20, 03, 2023"
-                },
-                {
-                    "id": 2,
-                    "idusuario": 3,
-                    "iddocumento": 1,
-                    "comentario": "¿Hay algún avance significativo hasta ahora? Estoy ansioso por conocer los resultados preliminares.",
-                    "fecha": "22, 03, 2023"
-                }
-            ]
+          "id": 1,
+          "idusuario": 2,
+          "iddocumento": 1,
+          "comentario": "¡Interesante proyecto! ¿Cuál es el enfoque principal de la investigación? Me gustaría saber más sobre las metodologías utilizadas.",
+          "fecha": "20, 03, 2023"
         },
         {
-            "titulo": "Informe Química",
-            "id": 2,
-            "idusuario": 7,
-            "descripcion": "Informe de prácticas de laboratorio de química. Este informe detalla los experimentos realizados en el laboratorio de química orgánica, incluyendo los procedimientos, resultados y análisis de los datos recopilados.",
-            "imagendeportada": "",
-            "visualizaciones": 800,
-            "documentourl": "",
-            "formato": "docx",
-            "carrera": "Química",
-            "tema": "Laboratorio de Química Orgánica",
-            "fecha": "20, 05, 2024",
-            "cantidadcomentarios": 53,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 1,
-                    "iddocumento": 2,
-                    "comentario": "¿Cómo se llevó a cabo la experimentación? Me gustaría conocer más detalles sobre los procedimientos utilizados.",
-                    "fecha": "22, 05, 2024"
-                },
-                {
-                    "id": 2,
-                    "idusuario": 4,
-                    "iddocumento": 2,
-                    "comentario": "¿Cuáles fueron los resultados obtenidos? Sería interesante ver cómo se relacionan con la teoría química.",
-                    "fecha": "24, 05, 2024"
-                },
-                {
-                    "id": 3,
-                    "idusuario": 5,
-                    "iddocumento": 2,
-                    "comentario": "¡Excelente trabajo! ¿Cuál es el siguiente paso en esta investigación? Estoy intrigado por los posibles desarrollos futuros.",
-                    "fecha": "25, 05, 2024"
-                }
-            ]
-        },
-        {
-            "titulo": "Presentación Energía",
-            "id": 3,
-            "idusuario": 8,
-            "descripcion": "Presentación sobre energías renovables. Esta presentación ofrece una visión general de las diferentes fuentes de energía renovable, incluyendo sus beneficios, desafíos y aplicaciones prácticas en el campo de la ingeniería energética.",
-            "imagendeportada": "",
-            "visualizaciones": 2000,
-            "documentourl": "",
-            "formato": "pdf",
-            "carrera": "Ingeniería Energética",
-            "tema": "Gestión de Energías Renovables",
-            "fecha": "10, 11, 2022",
-            "cantidadcomentarios": 86,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 3,
-                    "iddocumento": 3,
-                    "comentario": "¿Qué fuentes de energía renovable se presentaron? Me gustaría profundizar en la discusión sobre energía solar y eólica.",
-                    "fecha": "12, 11, 2022"
-                }
-            ]
-        },
-        {
-            "titulo": "Ensayo Deforestación",
-            "id": 4,
-            "idusuario": 9,
-            "descripcion": "Ensayo sobre el impacto ambiental de la deforestación. Este ensayo analiza las causas, consecuencias y posibles soluciones para el problema de la deforestación, centrándose en su impacto en el medio ambiente y la biodiversidad.",
-            "imagendeportada": "",
-            "visualizaciones": 1200,
-            "documentourl": "",
-            "formato": "pdf",
-            "carrera": "Biología",
-            "tema": "Ecología",
-            "fecha": "05, 09, 2023",
-            "cantidadcomentarios": 19,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 4,
-                    "iddocumento": 4,
-                    "comentario": "¿Qué soluciones se propusieron para abordar este problema? Estoy interesado en conocer enfoques innovadores para la conservación de los bosques.",
-                    "fecha": "08, 09, 2023"
-                }
-            ]
-        },
-        {
-            "titulo": "Análisis Económico",
-            "id": 5,
-            "idusuario": 10,
-            "descripcion": "Análisis estadístico de datos económicos. Este análisis examina tendencias, relaciones y patrones en datos económicos para comprender mejor la dinámica de los mercados y la toma de decisiones económicas.",
-            "imagendeportada": "",
-            "visualizaciones": 600,
-            "documentourl": "",
-            "formato": "txt",
-            "carrera": "Economía",
-            "tema": "Estadística Aplicada",
-            "fecha": "18, 07, 2024",
-            "cantidadcomentarios": 7,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 2,
-                    "iddocumento": 5,
-                    "comentario": "¿Qué tendencias se observaron en los datos? Estoy interesado en conocer las proyecciones futuras basadas en este análisis.",
-                    "fecha": "20, 07, 2024"
-                },
-                {
-                    "id": 2,
-                    "idusuario": 3,
-                    "iddocumento": 5,
-                    "comentario": "¿Cuál fue la metodología utilizada para el análisis? Me gustaría conocer más detalles sobre los métodos estadísticos empleados.",
-                    "fecha": "22, 07, 2024"
-                }
-            ]
-        },
-        {
-            "titulo": "Informe Arte",
-            "id": 6,
-            "idusuario": 11,
-            "descripcion": "Informe de investigación sobre la historia del arte. Este informe explora diferentes movimientos artísticos, artistas destacados y obras significativas en la historia del arte, con un enfoque en el arte contemporáneo.",
-            "imagendeportada": "",
-            "visualizaciones": 1800,
-            "documentourl": "",
-            "formato": "pdf",
-            "carrera": "Historia del Arte",
-            "tema": "Historia del Arte Contemporáneo",
-            "fecha": "22, 04, 2023",
-            "cantidadcomentarios": 82,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 4,
-                    "iddocumento": 6,
-                    "comentario": "¿Se incluyeron investigaciones sobre artistas contemporáneos? Me gustaría explorar más a fondo el arte contemporáneo.",
-                    "fecha": "25, 04, 2023"
-                }
-            ]
-        },
-        {
-            "titulo": "Presentación Neurociencia",
-            "id": 7,
-            "idusuario": 6,
-            "descripcion": "Presentación sobre neurociencia cognitiva. Esta presentación examina los fundamentos biológicos y psicológicos del funcionamiento del cerebro humano, con un énfasis en los procesos cognitivos y sus implicaciones para la psicología y la neurociencia.",
-            "imagendeportada": "",
-            "visualizaciones": 900,
-            "documentourl": "",
-            "formato": "docx",
-            "carrera": "Neurociencia",
-            "tema": "Neurociencia Cognitiva",
-            "fecha": "03, 12, 2022",
-            "cantidadcomentarios": 93,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 2,
-                    "iddocumento": 7,
-                    "comentario": "¿Qué áreas específicas de la neurociencia se cubrieron? Me gustaría profundizar en la discusión sobre la plasticidad cerebral.",
-                    "fecha": "05, 12, 2022"
-                },
-                {
-                    "id": 2,
-                    "idusuario": 3,
-                    "iddocumento": 7,
-                    "comentario": "¿Hubo alguna discusión sobre aplicaciones prácticas de la neurociencia cognitiva? Estoy interesado en conocer cómo se aplica este conocimiento en el campo de la educación.",
-                    "fecha": "08, 12, 2022"
-                }
-            ]
-        },
-        {
-            "titulo": "Informe Enfermería",
-            "id": 8,
-            "idusuario": 7,
-            "descripcion": "Informe de prácticas de enfermería. Este informe documenta las experiencias clínicas de estudiantes de enfermería en entornos hospitalarios, incluyendo casos de estudio, intervenciones de enfermería y reflexiones personales sobre el aprendizaje práctico.",
-            "imagendeportada": "",
-            "visualizaciones": 700,
-            "documentourl": "",
-            "formato": "pdf",
-            "carrera": "Enfermería",
-            "tema": "Prácticas Hospitalarias",
-            "fecha": "08, 10, 2024",
-            "cantidadcomentarios": 78,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 1,
-                    "iddocumento": 8,
-                    "comentario": "¿Cuáles fueron las experiencias más significativas durante las prácticas? Me gustaría escuchar más sobre los desafíos y logros en el entorno clínico.",
-                    "fecha": "10, 10, 2024"
-                }
-            ]
-        },
-        {
-            "titulo": "Proyecto Software",
-            "id": 9,
-            "idusuario": 8,
-            "descripcion": "Proyecto de desarrollo de software. Este proyecto se centra en el diseño, implementación y evaluación de un sistema de software para resolver problemas específicos en el campo de la ingeniería de software, con un enfoque en la calidad del software y la satisfacción del usuario.",
-            "imagendeportada": "",
-            "visualizaciones": 3000,
-            "documentourl": "",
-            "formato": "docx",
-            "carrera": "Ingeniería de Software",
-            "tema": "Desarrollo de Software",
-            "fecha": "14, 06, 2023",
-            "cantidadcomentarios": 36,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 2,
-                    "iddocumento": 9,
-                    "comentario": "¿Cuál es la tecnología principal utilizada en el desarrollo? Estoy interesado en conocer las herramientas y lenguajes de programación empleados.",
-                    "fecha": "16, 06, 2023"
-                },
-                {
-                    "id": 2,
-                    "idusuario": 3,
-                    "iddocumento": 9,
-                    "comentario": "¿Cómo se está gestionando el proyecto? Me gustaría saber más sobre la metodología de desarrollo utilizada y los roles del equipo.",
-                    "fecha": "18, 06, 2023"
-                }
-            ]
-        },
-        {
-            "titulo": "Informe Psicología",
-            "id": 10,
-            "idusuario": 9,
-            "descripcion": "Informe de investigación en psicología social. Este informe presenta los resultados de una investigación empírica sobre temas relevantes en psicología social, incluyendo estudios de caso, análisis de datos y discusiones sobre las implicaciones prácticas de los hallazgos.",
-            "imagendeportada": "",
-            "visualizaciones": 1500,
-            "documentourl": "",
-            "formato": "pdf",
-            "carrera": "Psicología",
-            "tema": "Psicología Social",
-            "fecha": "27, 01, 2022",
-            "cantidadcomentarios": 74,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 1,
-                    "iddocumento": 10,
-                    "comentario": "¿Cuáles fueron los hallazgos más destacados de la investigación? Me gustaría conocer las conclusiones principales y su relevancia para la psicología social.",
-                    "fecha": "30, 01, 2022"
-                },
-                {
-                    "id": 2,
-                    "idusuario": 4,
-                    "iddocumento": 10,
-                    "comentario": "¿Se realizaron encuestas o entrevistas para recopilar datos? Estoy interesado en la metodología utilizada para la recopilación de datos.",
-                    "fecha": "02, 02, 2022"
-                },
-                {
-                    "id": 3,
-                    "idusuario": 5,
-                    "iddocumento": 10,
-                    "comentario": "¿Cómo se puede aplicar esta investigación en contextos prácticos? Me gustaría explorar las implicaciones de los hallazgos para la intervención y la política social.",
-                    "fecha": "05, 02, 2022"
-                }
-            ]
-        },
-        {
-            "titulo": "Artículo Nanotecnología",
-            "id": 11,
-            "idusuario": 10,
-            "descripcion": "Artículo sobre nanotecnología. Este artículo revisa los avances recientes en el campo de la nanotecnología, incluyendo aplicaciones potenciales en medicina, electrónica y materiales, así como los desafíos éticos y ambientales asociados con su desarrollo.",
-            "imagendeportada": "",
-            "visualizaciones": 2500,
-            "documentourl": "",
-            "formato": "pdf",
-            "carrera": "Física",
-            "tema": "Nanotecnología",
-            "fecha": "12, 08, 2024",
-            "cantidadcomentarios": 80,
-            "comentarios": [
-                {
-                    "id": 1,
-                    "idusuario": 2,
-                    "iddocumento": 11,
-                    "comentario": "El artículo sobre nanotecnología es fascinante. ¿Hay alguna investigación en curso relacionada con esto? Me gustaría conocer más sobre los proyectos actuales en este campo.",
-                    "fecha": "18, 08, 2024"
-                },
-                {
-                    "id": 2,
-                    "idusuario": 3,
-                    "iddocumento": 11,
-                    "comentario": "¡Es increíble la capacidad de manipulación a nivel molecular! Estoy interesado en aprender más sobre las aplicaciones prácticas de esta tecnología.",
-                    "fecha": "20, 08, 2024"
-                },
-                {
-                    "id": 3,
-                    "idusuario": 4,
-                    "iddocumento": 11,
-                    "comentario": "¿Cuál es el potencial de la nanotecnología en la medicina? Me gustaría explorar más a fondo cómo la nanotecnología puede revolucionar el diagnóstico y tratamiento de enfermedades.",
-                    "fecha": "22, 08, 2024"
-                },
-                {
-                    "id": 4,
-                    "idusuario": 5,
-                    "iddocumento": 11,
-                    "comentario": "¿Qué desafíos éticos se presentan con el desarrollo de la nanotecnología? Estoy interesado en discutir las implicaciones éticas de la manipulación a nivel molecular.",
-                    "fecha": "24, 08, 2024"
-                }
-            ]
+          "id": 2,
+          "idusuario": 3,
+          "iddocumento": 1,
+          "comentario": "¿Hay algún avance significativo hasta ahora? Estoy ansioso por conocer los resultados preliminares.",
+          "fecha": "22, 03, 2023"
         }
-    ]
+      ]
+    },
+    {
+      "titulo": "Informe Química",
+      "id": 2,
+      "idusuario": 7,
+      "descripcion": "Informe de prácticas de laboratorio de química. Este informe detalla los experimentos realizados en el laboratorio de química orgánica, incluyendo los procedimientos, resultados y análisis de los datos recopilados.",
+      "imagendeportada": "https://picsum.photos/id/234/200/300",
+      "visualizaciones": 800,
+      "documentourl": "",
+      "formato": "docx",
+      "carrera": "Química",
+      "tema": "Laboratorio de Química Orgánica",
+      "fecha": "20, 05, 2024",
+      "cantidadcomentarios": 53,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 1,
+          "iddocumento": 2,
+          "comentario": "¿Cómo se llevó a cabo la experimentación? Me gustaría conocer más detalles sobre los procedimientos utilizados.",
+          "fecha": "22, 05, 2024"
+        },
+        {
+          "id": 2,
+          "idusuario": 4,
+          "iddocumento": 2,
+          "comentario": "¿Cuáles fueron los resultados obtenidos? Sería interesante ver cómo se relacionan con la teoría química.",
+          "fecha": "24, 05, 2024"
+        },
+        {
+          "id": 3,
+          "idusuario": 5,
+          "iddocumento": 2,
+          "comentario": "¡Excelente trabajo! ¿Cuál es el siguiente paso en esta investigación? Estoy intrigado por los posibles desarrollos futuros.",
+          "fecha": "25, 05, 2024"
+        }
+      ]
+    },
+    {
+      "titulo": "Presentación Energía",
+      "id": 3,
+      "idusuario": 8,
+      "descripcion": "Presentación sobre energías renovables. Esta presentación ofrece una visión general de las diferentes fuentes de energía renovable, incluyendo sus beneficios, desafíos y aplicaciones prácticas en el campo de la ingeniería energética.",
+      "imagendeportada": "https://picsum.photos/id/876/200/300",
+      "visualizaciones": 2000,
+      "documentourl": "",
+      "formato": "pdf",
+      "carrera": "Ingeniería Energética",
+      "tema": "Gestión de Energías Renovables",
+      "fecha": "10, 11, 2022",
+      "cantidadcomentarios": 86,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 3,
+          "iddocumento": 3,
+          "comentario": "¿Qué fuentes de energía renovable se presentaron? Me gustaría profundizar en la discusión sobre energía solar y eólica.",
+          "fecha": "12, 11, 2022"
+        }
+      ]
+    },
+    {
+      "titulo": "Ensayo Deforestación",
+      "id": 4,
+      "idusuario": 9,
+      "descripcion": "Ensayo sobre el impacto ambiental de la deforestación. Este ensayo analiza las causas, consecuencias y posibles soluciones para el problema de la deforestación, centrándose en su impacto en el medio ambiente y la biodiversidad.",
+      "imagendeportada": "https://picsum.photos/id/529/200/300",
+      "visualizaciones": 1200,
+      "documentourl": "",
+      "formato": "pdf",
+      "carrera": "Biología",
+      "tema": "Ecología",
+      "fecha": "05, 09, 2023",
+      "cantidadcomentarios": 19,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 4,
+          "iddocumento": 4,
+          "comentario": "¿Qué soluciones se propusieron para abordar este problema? Estoy interesado en conocer enfoques innovadores para la conservación de los bosques.",
+          "fecha": "08, 09, 2023"
+        }
+      ]
+    },
+    {
+      "titulo": "Análisis Económico",
+      "id": 5,
+      "idusuario": 10,
+      "descripcion": "Análisis estadístico de datos económicos. Este análisis examina tendencias, relaciones y patrones en datos económicos para comprender mejor la dinámica de los mercados y la toma de decisiones económicas.",
+      "imagendeportada": "https://picsum.photos/id/786/200/300",
+      "visualizaciones": 600,
+      "documentourl": "",
+      "formato": "avi",
+      "carrera": "Economía",
+      "tema": "Estadística Aplicada",
+      "fecha": "18, 07, 2024",
+      "cantidadcomentarios": 7,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 2,
+          "iddocumento": 5,
+          "comentario": "¿Qué tendencias se observaron en los datos? Estoy interesado en conocer las proyecciones futuras basadas en este análisis.",
+          "fecha": "20, 07, 2024"
+        },
+        {
+          "id": 2,
+          "idusuario": 3,
+          "iddocumento": 5,
+          "comentario": "¿Cuál fue la metodología utilizada para el análisis? Me gustaría conocer más detalles sobre los métodos estadísticos empleados.",
+          "fecha": "22, 07, 2024"
+        }
+      ]
+    },
+    {
+      "titulo": "Informe Arte",
+      "id": 6,
+      "idusuario": 11,
+      "descripcion": "Informe de investigación sobre la historia del arte. Este informe explora diferentes movimientos artísticos, artistas destacados y obras significativas en la historia del arte, con un enfoque en el arte contemporáneo.",
+      "imagendeportada": "https://picsum.photos/id/321/200/300",
+      "visualizaciones": 1800,
+      "documentourl": "",
+      "formato": "pdf",
+      "carrera": "Historia del Arte",
+      "tema": "Historia del Arte Contemporáneo",
+      "fecha": "22, 04, 2023",
+      "cantidadcomentarios": 82,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 4,
+          "iddocumento": 6,
+          "comentario": "¿Se incluyeron investigaciones sobre artistas contemporáneos? Me gustaría explorar más a fondo el arte contemporáneo.",
+          "fecha": "25, 04, 2023"
+        }
+      ]
+    },
+    {
+      "titulo": "Presentación Neurociencia",
+      "id": 7,
+      "idusuario": 6,
+      "descripcion": "Presentación sobre neurociencia cognitiva. Esta presentación examina los fundamentos biológicos y psicológicos del funcionamiento del cerebro humano, con un énfasis en los procesos cognitivos y sus implicaciones para la psicología y la neurociencia.",
+      "imagendeportada": "https://picsum.photos/id/123/200/300",
+      "visualizaciones": 900,
+      "documentourl": "",
+      "formato": "docx",
+      "carrera": "Neurociencia",
+      "tema": "Neurociencia Cognitiva",
+      "fecha": "03, 12, 2022",
+      "cantidadcomentarios": 93,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 2,
+          "iddocumento": 7,
+          "comentario": "¿Qué áreas específicas de la neurociencia se cubrieron? Me gustaría profundizar en la discusión sobre la plasticidad cerebral.",
+          "fecha": "05, 12, 2022"
+        },
+        {
+          "id": 2,
+          "idusuario": 3,
+          "iddocumento": 7,
+          "comentario": "¿Hubo alguna discusión sobre aplicaciones prácticas de la neurociencia cognitiva? Estoy interesado en conocer cómo se aplica este conocimiento en el campo de la educación.",
+          "fecha": "08, 12, 2022"
+        }
+      ]
+    },
+    {
+      "titulo": "Informe Enfermería",
+      "id": 8,
+      "idusuario": 7,
+      "descripcion": "Informe de prácticas de enfermería. Este informe documenta las experiencias clínicas de estudiantes de enfermería en entornos hospitalarios, incluyendo casos de estudio, intervenciones de enfermería y reflexiones personales sobre el aprendizaje práctico.",
+      "imagendeportada": "https://picsum.photos/id/567/200/300",
+      "visualizaciones": 700,
+      "documentourl": "",
+      "formato": "pdf",
+      "carrera": "Enfermería",
+      "tema": "Prácticas Hospitalarias",
+      "fecha": "08, 10, 2024",
+      "cantidadcomentarios": 78,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 1,
+          "iddocumento": 8,
+          "comentario": "¿Cuáles fueron las experiencias más significativas durante las prácticas? Me gustaría escuchar más sobre los desafíos y logros en el entorno clínico.",
+          "fecha": "10, 10, 2024"
+        }
+      ]
+    },
+    {
+      "titulo": "Proyecto Software",
+      "id": 9,
+      "idusuario": 8,
+      "descripcion": "Proyecto de desarrollo de software. Este proyecto se centra en el diseño, implementación y evaluación de un sistema de software para resolver problemas específicos en el campo de la ingeniería de software, con un enfoque en la calidad del software y la satisfacción del usuario.",
+      "imagendeportada": "https://picsum.photos/id/945/200/300",
+      "visualizaciones": 3000,
+      "documentourl": "",
+      "formato": "docx",
+      "carrera": "Ingeniería de Software",
+      "tema": "Desarrollo de Software",
+      "fecha": "14, 06, 2023",
+      "cantidadcomentarios": 36,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 2,
+          "iddocumento": 9,
+          "comentario": "¿Cuál es la tecnología principal utilizada en el desarrollo? Estoy interesado en conocer las herramientas y lenguajes de programación empleados.",
+          "fecha": "16, 06, 2023"
+        },
+        {
+          "id": 2,
+          "idusuario": 3,
+          "iddocumento": 9,
+          "comentario": "¿Cómo se está gestionando el proyecto? Me gustaría saber más sobre la metodología de desarrollo utilizada y los roles del equipo.",
+          "fecha": "18, 06, 2023"
+        }
+      ]
+    },
+    {
+      "titulo": "Informe Psicología",
+      "id": 10,
+      "idusuario": 9,
+      "descripcion": "Informe de investigación en psicología social. Este informe presenta los resultados de una investigación empírica sobre temas relevantes en psicología social, incluyendo estudios de caso, análisis de datos y discusiones sobre las implicaciones prácticas de los hallazgos.",
+      "imagendeportada": "https://picsum.photos/id/356/200/300",
+      "visualizaciones": 1500,
+      "documentourl": "",
+      "formato": "pdf",
+      "carrera": "Psicología",
+      "tema": "Psicología Social",
+      "fecha": "27, 01, 2022",
+      "cantidadcomentarios": 74,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 1,
+          "iddocumento": 10,
+          "comentario": "¿Cuáles fueron los hallazgos más destacados de la investigación? Me gustaría conocer las conclusiones principales y su relevancia para la psicología social.",
+          "fecha": "30, 01, 2022"
+        },
+        {
+          "id": 2,
+          "idusuario": 4,
+          "iddocumento": 10,
+          "comentario": "¿Se realizaron encuestas o entrevistas para recopilar datos? Estoy interesado en la metodología utilizada para la recopilación de datos.",
+          "fecha": "02, 02, 2022"
+        },
+        {
+          "id": 3,
+          "idusuario": 5,
+          "iddocumento": 10,
+          "comentario": "¿Cómo se puede aplicar esta investigación en contextos prácticos? Me gustaría explorar las implicaciones de los hallazgos para la intervención y la política social.",
+          "fecha": "05, 02, 2022"
+        }
+      ]
+    },
+    {
+      "titulo": "Artículo Nanotecnología",
+      "id": 11,
+      "idusuario": 10,
+      "descripcion": "Artículo sobre nanotecnología. Este artículo revisa los avances recientes en el campo de la nanotecnología, incluyendo aplicaciones potenciales en medicina, electrónica y materiales, así como los desafíos éticos y ambientales asociados con su desarrollo.",
+      "imagendeportada": "https://picsum.photos/id/789/200/300",
+      "visualizaciones": 2500,
+      "documentourl": "",
+      "formato": "pdf",
+      "carrera": "Física",
+      "tema": "Nanotecnología",
+      "fecha": "12, 08, 2024",
+      "cantidadcomentarios": 80,
+      "comentarios": [
+        {
+          "id": 1,
+          "idusuario": 2,
+          "iddocumento": 11,
+          "comentario": "El artículo sobre nanotecnología es fascinante. ¿Hay alguna investigación en curso relacionada con esto? Me gustaría conocer más sobre los proyectos actuales en este campo.",
+          "fecha": "18, 08, 2024"
+        },
+        {
+          "id": 2,
+          "idusuario": 3,
+          "iddocumento": 11,
+          "comentario": "¡Es increíble la capacidad de manipulación a nivel molecular! Estoy interesado en aprender más sobre las aplicaciones prácticas de esta tecnología.",
+          "fecha": "20, 08, 2024"
+        },
+        {
+          "id": 3,
+          "idusuario": 4,
+          "iddocumento": 11,
+          "comentario": "¿Cuál es el potencial de la nanotecnología en la medicina? Me gustaría explorar más a fondo cómo la nanotecnología puede revolucionar el diagnóstico y tratamiento de enfermedades.",
+          "fecha": "22, 08, 2024"
+        },
+        {
+          "id": 4,
+          "idusuario": 5,
+          "iddocumento": 11,
+          "comentario": "¿Qué desafíos éticos se presentan con el desarrollo de la nanotecnología? Estoy interesado en discutir las implicaciones éticas de la manipulación a nivel molecular.",
+          "fecha": "24, 08, 2024"
+        }
+      ]
+    }
+  ]
 }
