@@ -223,8 +223,6 @@ button {
   margin: 0 0px 0 5px;
 }
 
-
-
 /* For the elements inside the carousel */
 .carousel-container .preview-element-container {
   height: 80%;
@@ -246,7 +244,7 @@ button {
   align-items: center;
   width: 100%;
   max-width: 400px;
-  margin-bottom: 20px;
+  margin: 10px 0 20px 0;
 }
 
 .search-input {
@@ -273,4 +271,109 @@ button {
 
 .search-button:hover {
   background-color: var(--third-color)
+}
+/* FOR THE SEARCHPAGE LAYOUT */
+/* Banner */
+.banner-container {
+  width: 509px;
+  height: 237px;
+}
+
+.banner-container img {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.banner-txt {
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 29px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+/* filter by format */
+.format-button {
+  background-color: var(--third-color);
+  width: 84px;
+  height: 97px;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0px 0px 20px;
+}
+
+.format-button img {
+  width: 80%;
+  height: 75%;
+  margin: 0px 0px 3px 0px;
+}
+
+.clicked-button {
+  background-color: var(--primary-color);
+  width: 84px;
+  height: 97px;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0px 0px 20px;
+}
+
+.clicked-button img {
+  width: 80%;
+  height: 75%;
+  margin: 0px 0px 3px 0px;
+}
+.button-text {
+  color: var(--secondary-color);
+}
+
+/* Dropdowns */
+.dropdown {
+  background-color: var(--third-color);
+  width: 90%;
+  height: 90%;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 20px 0px 0px 20px;
+}
+.dropdown option {
+  background-color: var(--third-color);
+  color: var(--secondary-color);
+}
+
+/* filter by date */
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 50px 0 0 10px;
+}
+
+.date-inputs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.date-inputs input[type="date"]{
+  margin-right: 20px;
+  background-color: var(--third-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 2em;
+  color: var(--secondary-color);
+}
+
+/* featured files */
+
+.featured-files-container {
+  margin: 10px 0 0 10px;
 }
