@@ -7,6 +7,7 @@ import './App.css';
 import UsersData from './exampledata/Users.json';
 import DocumentData from './exampledata/Documents.json'
 import Home from './components/layouts/home';
+import SearchPage from './components/layouts/searchPage';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<DocumentPage data={DocumentData["documentos"][1]}/>} />
         <Route path="/preview" element={<Home docData={DocumentData} userData = {UsersData} /> } />
         <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData = {UsersData} /> } />
-        <Route path="/search" element={<Home docData={DocumentData} userData = {UsersData} /> } />
+        <Route path="/search" element={<SearchPage docData={DocumentData} userData = {UsersData}/> } />
       </Routes>
     </Router>
   );

@@ -15,5 +15,6 @@ export default function SearchBar() {
             className="search-input"
         />
         </div>
+        
     );
 }
