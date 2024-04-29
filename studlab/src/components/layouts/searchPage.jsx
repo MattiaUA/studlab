@@ -1,7 +1,8 @@
 import { useState } from "react";
 import SearchBar from "../partials/searchBar";
+import NavigationBar from "../partials/navigation-bar";
 
-export default function SearchPage({ docData }) {
+export default function SearchPage({ docData, userData }) {
   const docs = docData["documentos"];
   const careers = [...new Set(docs.map((doc) => doc.carrera))];
   const [selectedCareer, setSelectedCareer] = useState("");
@@ -103,6 +104,7 @@ export default function SearchPage({ docData }) {
       <div className="">
 
       </div>
+      <NavigationBar user = {userData[0]} />
     </>
   );
 }

@@ -156,8 +156,22 @@ button {
   align-items: center;
 }
 
-/* For the preview */
+.nav-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1em;
+  box-sizing: border-box;
+  border: 1px solid var(--third-color);
 
+  & img {
+    width: 33px;
+    height: 33px;
+  }
+}
+/* For the preview */
 .preview-element-container {
   overflow: hidden;
   display: flex;
@@ -376,4 +390,17 @@ button {
 
 .featured-files-container {
   margin: 10px 0 0 10px;
+}
+
+.usuarios-reel {
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 0 5px;
+
+  & .profile-pic {
+    padding-top: 0.25em;
+    width: 70px;
+    height: fit-content;
+  }
 }
