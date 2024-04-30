@@ -10,7 +10,6 @@ function DocumentVisualizer({ data }) {
     const [selectedNavItem, setSelectedNavItem] = useState("info");
 
     const { ref: swipeHandler } = useSwipeable({
-        onSwiped: (eventData) => console.log("User Swiped!", eventData),
         onSwipedLeft: () => {
             if (selectedNavItem === "comments") setSelectedNavItem("archive");
             else if (selectedNavItem === "archive") setSelectedNavItem("info");
@@ -21,7 +20,7 @@ function DocumentVisualizer({ data }) {
         }
     });
 
-    //Para detectar el swipe en toda la pantalla
+    // Para detectar el swipe en toda la pantalla
     useEffect(() => {
         swipeHandler(document);
         // Clean up swipeable event listeners
