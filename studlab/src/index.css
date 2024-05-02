@@ -25,6 +25,14 @@
 html{
   height: 100%;
 }
+/* Quita recuadro azul al hacer click */
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
 
 a {
   font-weight: 500;
