@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import ProfilePic from '../profile-pic';
+import ProfilePic from './profile-pic';
 
 function NavigationBar({ user }) {
   return (

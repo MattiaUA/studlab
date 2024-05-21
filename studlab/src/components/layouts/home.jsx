@@ -10,7 +10,7 @@ export default function Home(props) {
     return (
         <>
             <Preview data={prevData[0]} />
-            {/* <PreviewCarrousel data={prevData} /> */}
+            <PreviewCarrousel data={prevData} />
             {/* <SearchBar /> */}
         </>
     )

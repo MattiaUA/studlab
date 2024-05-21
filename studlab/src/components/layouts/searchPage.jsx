@@ -104,7 +104,7 @@ export default function SearchPage({ docData, userData }) {
       <div className="">
 
       </div>
-      <NavigationBar user = {userData[0]} />
+      <NavigationBar style={{ position: 'fixed', bottom: 0 }}  user = {userData[0]} />
     </>
   );
 }

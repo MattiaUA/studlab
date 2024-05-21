@@ -19,13 +19,31 @@
 }
 
 #root{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  height: 100%;
   width: 100%;
 }
 
 html{
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
+#root{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
 a {
   font-weight: 500;
   color: var(--primary-color);
@@ -43,20 +61,16 @@ h2{
   font-size: var(--font-m);
 }
 
-
 body{
   margin: 0;
-  display: flex;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   font-family: var(--font-fam);
 }
-
 h1,h2,h3,h4,p{
   font-family: var(--font-fam);
   margin: 0;
 }
-
 button {
   border-radius: 8px;
   border: 2px solid transparent;
@@ -68,8 +82,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-
-
 .profile-pic{
   width: 40px;
   height: 40px;
@@ -80,6 +92,15 @@ button {
   border-radius: 50%;
   border: 2px solid var(--primary-color);
 }
+
+.document-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
 .document-info{
   height: 100%;
   width: 100%;
@@ -122,11 +143,18 @@ button {
   color: var(--primary-color) !important;
   border-bottom: 2px solid var(--primary-color);
 }
-.document-visualizer-carrousel{
-  height: 100%;
-}
-
 .document-visualizer{
+  height: 100%;
+  flex-grow: 1;
+}
+.visualizer{
+  height: 300px;
+  display: block;
+  width: 100%;
+
+}
+iframe{
+  width: 100%;
   height: 100%;
 }
 
@@ -158,8 +186,6 @@ button {
 
 .nav-bar {
   width: 100%;
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: space-between;
   padding: 1em 1em;
@@ -167,8 +193,8 @@ button {
   border: 1px solid var(--third-color);
 
   & img {
-    width: 33px;
-    height: 33px;
+    width: 25px;
+    height: 25px;
   }
 }
 /* For the preview */
@@ -237,7 +263,6 @@ button {
   margin: 0 0px 0 5px;
 }
 
-/* For the elements inside the carousel */
 .carousel-container .preview-element-container {
   height: 80%;
   width: 49%;
@@ -258,7 +283,7 @@ button {
   align-items: center;
   width: 100%;
   max-width: 400px;
-  margin: 10px 0 20px 0;
+  margin-bottom: 20px;
 }
 
 .search-input {
@@ -285,122 +310,4 @@ button {
 
 .search-button:hover {
   background-color: var(--third-color)
-}
-/* FOR THE SEARCHPAGE LAYOUT */
-/* Banner */
-.banner-container {
-  width: 509px;
-  height: 237px;
-}
-
-.banner-container img {
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-}
-
-.banner-txt {
-  position: absolute;
-  top: 13%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 29px;
-  font-weight: 600;
-  color: var(--secondary-color);
-}
-
-/* filter by format */
-.format-button {
-  background-color: var(--third-color);
-  width: 84px;
-  height: 97px;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  margin: 10px 0px 0px 20px;
-}
-
-.format-button img {
-  width: 80%;
-  height: 75%;
-  margin: 0px 0px 3px 0px;
-}
-
-.clicked-button {
-  background-color: var(--primary-color);
-  width: 84px;
-  height: 97px;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  margin: 10px 0px 0px 20px;
-}
-
-.clicked-button img {
-  width: 80%;
-  height: 75%;
-  margin: 0px 0px 3px 0px;
-}
-.button-text {
-  color: var(--secondary-color);
-}
-
-/* Dropdowns */
-.dropdown {
-  background-color: var(--third-color);
-  width: 90%;
-  height: 90%;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  margin: 20px 0px 0px 20px;
-}
-.dropdown option {
-  background-color: var(--third-color);
-  color: var(--secondary-color);
-}
-
-/* filter by date */
-
-.date-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 50px 0 0 10px;
-}
-
-.date-inputs {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  margin-top: 5px;
-}
-
-.date-inputs input[type="date"]{
-  margin-right: 20px;
-  background-color: var(--third-color);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 2em;
-  color: var(--secondary-color);
-}
-
-/* featured files */
-
-.featured-files-container {
-  margin: 10px 0 0 10px;
-}
-
-.usuarios-reel {
-  height: fit-content;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 5px 0 5px;
-
-  & .profile-pic {
-    padding-top: 0.25em;
-    width: 70px;
-    height: fit-content;
-  }
 }
