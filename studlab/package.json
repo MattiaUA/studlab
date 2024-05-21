@@ -5,20 +5,25 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npx cap add android && npx cap add ios",
+    "build": "vite build && npx cap sync",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@capacitor/android": "^5.7.4",
-    "@capacitor/cli": "^5.7.4",
-    "@capacitor/core": "^5.7.4",
-    "@capacitor/ios": "^5.7.4",
+    "@babel/runtime": "^7.24.4",
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/ios": "^6.0.0",
+    "@capacitor/splash-screen": "^6.0.0",
+    "@capacitor/status-bar": "^6.0.0",
+    "@react-pdf/renderer": "^3.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "react-slider": "^2.0.6"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",

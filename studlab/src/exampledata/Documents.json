@@ -7,7 +7,7 @@
       "descripcion": "Proyecto de investigación sobre inteligencia artificial. Este proyecto busca explorar diferentes enfoques en el campo de la inteligencia artificial para mejorar la comprensión de sistemas inteligentes y su aplicación en diversas áreas.",
       "imagendeportada": "https://picsum.photos/id/478/200/300",
       "visualizaciones": 1500,
-      "documentourl": "",
+      "documentourl": "../../public/pdf_demo.pdf",
       "formato": "pdf",
       "carrera": "Ingeniería Informática",
       "tema": "Introducción a la Inteligencia Artificial",

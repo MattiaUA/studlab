@@ -15,9 +15,9 @@ function DocumentVisualizer({ data }) {
 
     return (
         <div className="document-visualizer">
-            <div id="visualizer">
-                <iframe src={data.documentourl}>
-                </iframe>
+            <div className="visualizer">
+                {data.formato === "mp4" && <iframe src={data.documentourl}></iframe>}
+                {data.formato === "pdf" && <iframe src={data.documentourl}></iframe>}
             </div>
             <ul className="document-nav">
                 <li>
