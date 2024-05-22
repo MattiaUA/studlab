@@ -31,12 +31,11 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<DocumentPage data={DocumentData["documentos"][1]} />} />
+          <Route path="/" element={<DocumentPage docData={DocumentData["documentos"][1]} userData={UsersData[0]} />} />
           <Route path="/preview" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/search" element={<Home docData={DocumentData} userData={UsersData} />} />
         </Routes>
-        <NavigationBar user={UsersData[0]}></NavigationBar>
       </Router>
     </div>
   );
