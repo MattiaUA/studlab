@@ -1,13 +1,13 @@
 import React from "react";
 import NavigationBar from "../partials/navigation-bar";
 import DocumentVisualizer from "../partials/document-visualizer";
-function DocumentPage(props) {
-    const { docData, userData } = props;
+function DocumentPage(docData) {
+    console.log(docData.data);
 
     return (
         <div className="document-page">
-            <DocumentVisualizer data={docData}></DocumentVisualizer>
-            <NavigationBar user={userData}></NavigationBar>
+            <DocumentVisualizer data={docData.data}></DocumentVisualizer>
+            <NavigationBar></NavigationBar>
         </div>
     )
 }

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import ProfilePic from './profile-pic';
+import UsersData from '../../exampledata/Users.json';
 
-function NavigationBar({ user }) {
+function NavigationBar() {
   return (
     <div className="nav-bar">
       <Link to="home">
@@ -17,7 +18,7 @@ function NavigationBar({ user }) {
       <Link to={"notifications"}>
         <img src="/notification.png" alt="Notifications"></img>
       </Link>
-      <ProfilePic user={user}></ProfilePic>
+      <ProfilePic user={UsersData[0]}></ProfilePic>
     </div>
   )
 }
