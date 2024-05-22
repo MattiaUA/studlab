@@ -44,6 +44,15 @@ html{
   margin: 0;
   padding: 0;
 }
+/* Quita recuadro azul al hacer click */
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 a {
   font-weight: 500;
   color: var(--primary-color);
@@ -151,6 +160,7 @@ button {
   height: 300px;
   display: block;
   width: 100%;
+  overflow: hidden;
 
 }
 iframe{
@@ -311,3 +321,19 @@ iframe{
 .search-button:hover {
   background-color: var(--third-color)
 }
+<<<<<<< HEAD
+=======
+
+.usuarios-reel {
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 0 5px;
+
+  & .profile-pic {
+    padding-top: 0.25em;
+    width: 70px;
+    height: fit-content;
+  }
+}
+>>>>>>> origin/marcos

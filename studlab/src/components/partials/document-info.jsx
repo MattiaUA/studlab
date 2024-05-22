@@ -27,11 +27,11 @@ function DocumentInfo({ data }) {
             <p><strong>Tema: </strong>{data.carrera}</p>
             <br />
             <div style={{ display: "flex",flexDirection:"row",height: "fit-content",width:"10px" }}>
-                <img src="../../public/eye.png" alt="views icon"></img>
+                <img src="/eye.png" alt="views icon"></img>
                 <p>{data.visualizaciones}</p>
             </div>
             <br />
-            <img src="../../public/cc.png" alt="Creative commons logo"></img>
+            <img src="/cc.png" alt="Creative commons logo"></img>
         </div>
     )
 }
