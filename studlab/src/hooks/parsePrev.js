@@ -8,6 +8,7 @@ import { useMemo } from "react";
  * @returns The necessary data from the previsualization. Taking out the undefined
  */
 export default function parsePrev(docs, users) {
+
   const prevData = useMemo(() => {
     const combinedData = docs.documentos
       .map((doc) => {
