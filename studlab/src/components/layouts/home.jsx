@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import parsePrev from '../../hooks/parsePrev'
 import Preview from '../partials/preview'
-import PreviewCarrousel from '../partials/previewCarousel'
-import SearchBar from '../partials/searchBar'
 import UsuariosReel from '../partials/usuarios-reel'
 import NavigationBar from '../partials/navigation-bar';
 
@@ -25,8 +23,16 @@ export default function Home(props) {
                 <li><button onClick={() => handleNavClick("educacion")} className={selectedNavItem === "educacion" ? "active-home-nav" : ""}>Educación</button></li>
             </ul>
             <UsuariosReel users={userData} />
-            <Preview data={prevData[0]} />
-            <NavigationBar />
+            <div className='previews'>
+                <Preview data={prevData[0]} />
+                <Preview data={prevData[1]} />
+                <Preview data={prevData[2]} />
+                <Preview data={prevData[3]} />
+                <Preview data={prevData[4]} />
+                <Preview data={prevData[5]} />
+                <Preview data={prevData[6]} />
+                <NavigationBar />
+            </div>
         </>
     )
 }

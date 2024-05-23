@@ -385,8 +385,10 @@ iframe{
   list-style: none;
   border-bottom: 1px solid var(--third-color);
   overflow-x: scroll;
-  margin-bottom: 0;
   white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 
   & li button {
     font-size: var(--font-text);
@@ -401,4 +403,12 @@ iframe{
   text-decoration-color: var(--primary-color);
   text-underline-offset: 0.25rem;
   text-decoration-thickness: 0.2rem;
+}
+
+.previews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 0.5rem;
 }
