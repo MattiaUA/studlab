@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { StatusBar, Style } from '@capacitor/status-bar';
 
 import DocumentPage from './components/layouts/documentPage';
+import NewDocumentPage from './components/layouts/documentNew';
 
 import './App.css';
 import UsersData from './exampledata/Users.json';
@@ -30,10 +31,11 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='main-content'>
       <Router>
         <Routes>
-          <Route path="/" element={<DocumentPage data={DocumentData["documentos"][1]}/>} />
+          <Route path="/" element={<DocumentPage data={DocumentData["documentos"][0]}/>} />
+          <Route path="/new" element={<NewDocumentPage userData={UsersData}/>} />
           <Route path="/preview" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/search" element={<SearchPage docData={DocumentData} userData={UsersData} />} />

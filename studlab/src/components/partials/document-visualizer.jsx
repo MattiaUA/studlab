@@ -5,7 +5,6 @@ import DocumentArchive from "./document-archive";
 import DocumentInfo from "./document-info";
 import DocumentReelComments from "./document-reelcomments";
 
-
 function DocumentVisualizer({ data }) {
 
     const [selectedNavItem, setSelectedNavItem] = useState("info");
@@ -21,12 +20,10 @@ function DocumentVisualizer({ data }) {
         }
     });
 
-    // Para detectar el swipe en toda la pantalla
     useEffect(() => {
         swipeHandler(document);
-        // Clean up swipeable event listeners
         return () => swipeHandler({});
-    });
+    }, [swipeHandler]);
 
     const handleNavClick = (navItem) => {
         setSelectedNavItem(navItem);
@@ -35,18 +32,43 @@ function DocumentVisualizer({ data }) {
     return (
         <div className="document-visualizer">
             <div className="visualizer">
-                {data.formato === "mp4" && <iframe src={data.documentourl}></iframe>}
-                {data.formato === "pdf" && <iframe src={data.documentourl}></iframe>}
+                {data.formato === "mp4" && (
+                    <iframe 
+                        src={data.documentourl}
+                        allow="autoplay"
+                        frameBorder="0"
+                        title="Video Preview"
+                    ></iframe>
+                )}
+                {data.formato === "pdf" && (
+                    <iframe 
+                        src={data.documentourl}
+                        frameBorder="0"
+                        title="PDF Preview"
+                    ></iframe>
+                )}
+                {(data.formato === "jpeg" || data.formato === "png") && (
+                    <img 
+                        src={data.documentourl}
+                        alt="Image Preview"
+                    />
+                )}
             </div>
             <ul className="document-nav">
                 <li>
-                    <button onClick={() => handleNavClick("comments")} className={selectedNavItem === "comments" ? "active-document-nav" : ""}>Comentarios{"(" + Object.keys(data.comentarios).length + ")"}</button>
+                    <button onClick={() => handleNavClick("comments")} className={selectedNavItem === "comments" ? "active-document-nav" : ""}>
+                        Comentarios{"(" + Object.keys(data.comentarios).length + ")"}
+                    </button>
                 </li>
                 <li>
-                    <button onClick={() => handleNavClick("archive")} className={selectedNavItem === "archive" ? "active-document-nav" : ""}>Archivos{"(1)"}</button>
+                    <button onClick={() => handleNavClick("archive")} className={selectedNavItem === "archive" ? "active-document-nav" : ""}>
+                        Archivos{"(1)"}
+                    </button>
                 </li>
                 <li>
-                    <button onClick={() => handleNavClick("info")} className={selectedNavItem === "info" ? "active-document-nav" : ""}>Información</button>
+                    <button onClick={() => handleNavClick("info")} className={selectedNavItem === "info" ? "active-document-nav" : ""}>
+                        Información
+                    </button>
                 </li>
             </ul>
             <div className="document-visualizer-carrousel">
@@ -55,7 +77,7 @@ function DocumentVisualizer({ data }) {
                 {selectedNavItem === "info" && <DocumentInfo data={data} />}
             </div>
         </div>
-    )
-
+    );
 }
+
 export default DocumentVisualizer;
