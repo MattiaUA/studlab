@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfilePic from '../profile-pic';
+import ProfilePic from './profile-pic';
 
 function UsuariosReel({ users }) {
   return (
@@ -9,6 +9,11 @@ function UsuariosReel({ users }) {
       <ProfilePic user={users[2]}></ProfilePic>
       <ProfilePic user={users[3]}></ProfilePic>
       <ProfilePic user={users[4]}></ProfilePic>
+      <ProfilePic user={users[5]}></ProfilePic>
+      <ProfilePic user={users[6]}></ProfilePic>
+      <ProfilePic user={users[7]}></ProfilePic>
+      <ProfilePic user={users[8]}></ProfilePic>
+      <ProfilePic user={users[9]}></ProfilePic>
     </div>
   )
 }

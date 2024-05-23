@@ -312,15 +312,18 @@ iframe{
 }
 
 .usuarios-reel {
-  height: fit-content;
   display: flex;
-  justify-content: space-between;
-  margin: 0 5px 0 5px;
+  flex-direction: row;
+  overflow-x: scroll;
 
   & .profile-pic {
     padding-top: 0.25em;
-    width: 70px;
     height: fit-content;
+    width: 100%;
+
+    & img {
+      width: 70px;
+    }
   }
 }
 
@@ -347,7 +350,7 @@ iframe{
   }
 
   & label, p, a {
-    font-weight: 700;
+    font-weight: var(--strong-weight);
     color: var(--secondary-color);
   }
 
@@ -373,4 +376,29 @@ iframe{
     width: 80px;
     height: 80px;
   }
+}
+
+.categorias {
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  border-bottom: 1px solid var(--third-color);
+  overflow-x: scroll;
+  margin-bottom: 0;
+  white-space: nowrap;
+
+  & li button {
+    font-size: var(--font-text);
+    padding: 10px;
+    border-radius: 0;
+    font-weight: var(--strong-weight);
+  }
+}
+
+.active-home-nav {
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-underline-offset: 0.25rem;
+  text-decoration-thickness: 0.2rem;
 }
