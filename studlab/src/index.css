@@ -328,7 +328,7 @@ iframe{
 }
 /* Banner */
 .banner-container {
-  height: 35%;
+  height: 210px;
   width: 100%;
 }
 
@@ -453,4 +453,27 @@ iframe{
   justify-content: center;
   margin-top: 10px;
   padding-bottom: 75px;
+}
+
+/* for the page: searchResults */
+
+.related-profiles-container {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  width: 100%;
+  margin: 15px 0px 0px 115px;
+  transform: scale(1.5);
+  gap: 8px
+}
+
+.view-all-btn {
+  width: fit-content;
+  height: 23px;
+  font-size: x-small;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 15px;
+  margin: -40px 0 0 4%;
 }
