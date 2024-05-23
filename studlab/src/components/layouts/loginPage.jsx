@@ -1,14 +1,43 @@
-import React from "react";
+import React, {useState} from "react";
+
+import UsersData from '../../exampledata/Users.json';
+import { Preferences } from '@capacitor/preferences';
+import { useNavigate } from "react-router";
 
 function LoginPage() {
+    const [email, setName] = useState("");
+    const [pwd, setPwd] = useState("");
+    const navigate = useNavigate();
+
+    async function saveSession(user) {
+        await Preferences.set({ key: 'idUser', value: JSON.stringify(user.id) });
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        for (const user of UsersData) {
+            if (user.email === email && user.pwd === pwd) {
+                saveSession(user).then(() => {
+                    navigate('/');
+                });
+                return;
+            }
+        }
+
+        //TODO: Poner algo mas bonito
+        alert("Credenciales incorrectas");
+    }
+
+    //Preferences.remove({ key: 'idUser' });
+
     return (
         <div className="login-page">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <p>Iniciar sesión</p>
-                <label htmlFor="usuario">Usuario</label>
-                <input className="" type="text" name="usuario" id="usuario" placeholder="Nombre de usuario"/>
-                <label htmlFor="pass">Contraseña</label>
-                <input type="password" name="pass" id="pass" placeholder="Contraseña"/>
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" id="email" value={email} onChange={e => setName(e.target.value)} placeholder="Email"/>
+                <label htmlFor="pwd">Contraseña</label>
+                <input type="password" name="pwd" id="pwd" value={pwd} onChange={e => setPwd(e.target.value)}  placeholder="Contraseña"/>
                 <button type="submit">Iniciar</button>
             </form>
         </div>
