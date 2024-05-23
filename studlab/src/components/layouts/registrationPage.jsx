@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Preferences } from '@capacitor/preferences';
 
 function RegistrationPage() {
   const [nombre, setNombre] = useState("");
@@ -11,12 +13,22 @@ function RegistrationPage() {
   const [imagen, setImagen] = useState("");
   const navigate = useNavigate();
 
+  async function saveSession(id) {
+    await Preferences.set({ key: 'idUser', value: JSON.stringify(id) });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    saveSession(2).then(() => {
+      navigate('/');
+    });
+  }
+
   function takePhoto() {
     Camera.getPhoto({
       source: CameraSource.Camera,
       quality: 90,
       width: 1024,
-      allowEditing: true,
       resultType: CameraResultType.DataUrl,
     }).then(res => setImagen(res.dataUrl));
   }
@@ -30,15 +42,13 @@ function RegistrationPage() {
   }
 
   function PrevisualizacionFoto() {
-    if (imagen) {
-      return <img src={imagen}/>;
-    }
+    if (imagen) return <img src={imagen} />;
     return "";
   }
 
   return (
     <div className="login-page">
-      <form>
+      <form onSubmit={handleSubmit}>
         <p>Registro</p>
         <label htmlFor="nombre">Nombre completo</label>
         <input type="text" name="nombre" id="nombre" value={nombre} onChange={e => setNombre(e.target.value)} placeholder="Nombre completo" required />
@@ -49,12 +59,15 @@ function RegistrationPage() {
         <label htmlFor="carrera">Carrera</label>
         <input type="text" name="carrera" id="carrera" value={carrera} onChange={e => setCarrera(e.target.value)} placeholder="Carrera" required />
         <label htmlFor="pwd">Contraseña</label>
-        <input type="password" name="pwd" id="pwd" value={pwd} onChange={e => setPwd(e.target.value)} placeholder="Teléfono" required />
+        <input type="password" name="pwd" id="pwd" value={pwd} onChange={e => setPwd(e.target.value)} placeholder="Contraseña" required />
         <label>Imagen de perfil</label>
         <button type="button" onClick={takePhoto} >Hacer foto</button>
         <button type="button" onClick={pickFromGallery}>Elegir de la galería</button>
-        <PrevisualizacionFoto/>
+        <PrevisualizacionFoto />
         <button id="enviar" type="submit">Registrarse</button>
+        <Link to="/login">
+          Iniciar sesión
+        </Link>
       </form>
     </div>
   )
