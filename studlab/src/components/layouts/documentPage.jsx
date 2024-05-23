@@ -7,7 +7,7 @@ function DocumentPage(props) {
     return (
         <div className="document-page">
             <DocumentVisualizer data={docData}></DocumentVisualizer>
-            <NavigationBar user={userData}></NavigationBar>
+            <NavigationBar></NavigationBar>
         </div>
     )
 }
