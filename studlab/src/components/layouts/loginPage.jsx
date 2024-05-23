@@ -5,7 +5,7 @@ import { Preferences } from '@capacitor/preferences';
 import { useNavigate } from "react-router";
 
 function LoginPage() {
-    const [email, setName] = useState("");
+    const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
     const navigate = useNavigate();
 
@@ -28,14 +28,12 @@ function LoginPage() {
         alert("Credenciales incorrectas");
     }
 
-    //Preferences.remove({ key: 'idUser' });
-
     return (
         <div className="login-page">
             <form onSubmit={handleSubmit}>
                 <p>Iniciar sesión</p>
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" value={email} onChange={e => setName(e.target.value)} placeholder="Email"/>
+                <input type="email" name="email" id="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email"/>
                 <label htmlFor="pwd">Contraseña</label>
                 <input type="password" name="pwd" id="pwd" value={pwd} onChange={e => setPwd(e.target.value)}  placeholder="Contraseña"/>
                 <button type="submit">Iniciar</button>
