@@ -7,6 +7,9 @@ export default function SearchPage({ docData, userData }) {
   const docs = docData["documentos"];
   const careers = [...new Set(docs.map((doc) => doc.carrera))];
   const [selectedCareer, setSelectedCareer] = useState("");
+  const [selectedClass, setSelectedClass] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [classes, setClasses] = useState([]);
   const [filters, setFilters] = useState({
     search: "",
@@ -14,6 +17,9 @@ export default function SearchPage({ docData, userData }) {
     class: "",
     startDate: "",
     endDate: "",
+    img: false,
+    doc: false,
+    vid: false
   });
   const [isClicked, setIsClicked] = useState(false);
   const [isVideoClicked, setIsVideoClicked] = useState(false);
@@ -22,32 +28,41 @@ export default function SearchPage({ docData, userData }) {
   const handleCareerChange = (evt) => {
     const selected = evt.target.value;
     setSelectedCareer(selected);
-    setFilters({ ...filters, career: selected });
     const classesOfCareer = getClasses(docData, selected);
     setClasses(classesOfCareer);
+    setFilters({ ...filters, career: selected });
+  };
+
+  const handleClassChange = (evt) => {
+    const selected = evt.target.value;
+    setSelectedClass(selected);
+    setFilters({ ...filters, class: selected });
   };
 
   const handleStartDateChange = (evt) => {
     setStartDate(evt.target.value);
+    setFilters({ ...filters, startDate: evt.target.value});
   };
 
   const handleEndDateChange = (evt) => {
     setEndDate(evt.target.value);
+    setFilters({ ...filters, endDate: evt.target.value});
   };
 
   const handleClick = () => {
-    setIsClicked(true);
+    setIsClicked(prevState => !prevState);
+    setFilters(prevFilters => ({ ...prevFilters, img: !prevFilters.img}));
   };
 
   const handleVideoClick = () => {
-    setIsVideoClicked(true);
+    setIsVideoClicked(prevState => !prevState);
+    setFilters(prevFilters => ({ ...prevFilters, vid: !prevFilters.vid}));
   };
 
   const handleDocClick = () => {
-    setIsDocClicked(true);
+    setIsDocClicked(prevState => !prevState);
+    setFilters(prevFilters => ({ ...prevFilters, doc: !prevFilters.doc}));
   };
-
-  console.log(filters);
 
   return (
     <div className="search-container">
@@ -89,7 +104,7 @@ export default function SearchPage({ docData, userData }) {
             </option>
           ))}
         </select>
-        <select className="dropdown" disabled={!selectedCareer}>
+        <select className="dropdown" onChange={handleClassChange} disabled={!selectedCareer}>
           <option value="">Filtrar por asignatura (escoge primero una carrera)</option>
           {classes.map((clase, idx) => (
             <option key={idx} value={clase}>
