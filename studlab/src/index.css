@@ -331,7 +331,7 @@ iframe{
   background-size: cover;
   background-position: center;
 
-  & button {
+  & button#enviar {
     border: 1px solid var(--primary-color);
     border-radius: 20px;
     color: var(--primary-color);
@@ -352,7 +352,7 @@ iframe{
   }
 
   & p {
-    margin-bottom: 2rem;
+    margin-bottom: 0.6rem;
   }
 
   & form {
@@ -362,5 +362,10 @@ iframe{
     justify-content: center;
     gap: 1rem;
     height: 100%;
+  }
+
+  & img {
+    width: 80px;
+    height: 80px;
   }
 }
