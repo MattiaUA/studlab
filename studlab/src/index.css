@@ -338,3 +338,105 @@ iframe{
 .search-button:hover {
   background-color: var(--third-color)
 }
+
+.usuarios-reel {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+
+  & .profile-pic {
+    padding-top: 0.25em;
+    height: fit-content;
+    width: 100%;
+
+    & img {
+      width: 70px;
+    }
+  }
+}
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("/login-bg.png");
+  background-size: cover;
+  background-position: center;
+
+  & button#enviar {
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    color: var(--primary-color);
+  }
+
+  & input {
+    border: 0.2px solid var(--third-color);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    text-align: center;
+    height: 1.5rem;
+    width: 70vw;
+  }
+
+  & label, p, a {
+    font-weight: var(--strong-weight);
+    color: var(--secondary-color);
+  }
+
+  & p {
+    margin-bottom: 0.6rem;
+  }
+
+  & a{
+    text-decoration: underline;
+    margin-top: 0.8rem;
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    height: 100%;
+  }
+
+  & img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.categorias {
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  border-bottom: 1px solid var(--third-color);
+  overflow-x: scroll;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  & li button {
+    font-size: var(--font-text);
+    padding: 10px;
+    border-radius: 0;
+    font-weight: var(--strong-weight);
+  }
+}
+
+.active-home-nav {
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-underline-offset: 0.25rem;
+  text-decoration-thickness: 0.2rem;
+}
+
+.previews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 0.5rem;
+}

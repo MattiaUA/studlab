@@ -14,6 +14,8 @@ import DocumentData from './exampledata/Documents.json'
 import Home from './components/layouts/home';
 import SearchPage from './components/layouts/searchPage';
 import NavigationBar from './components/partials/navigation-bar';
+import LoginPage from './components/layouts/loginPage';
+import RegistrationPage from './components/layouts/registrationPage';
 
 function App() {
   if (Capacitor.isNativePlatform()) {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/preview" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/search" element={<SearchPage docData={DocumentData} userData={UsersData} />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
         </Routes>
       </Router>
     </div>

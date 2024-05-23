@@ -5,7 +5,7 @@ function DocumentPage(docData) {
 
     return (
         <div className="document-page">
-            <DocumentVisualizer data={docData.data}></DocumentVisualizer>
+            <DocumentVisualizer data={docData}></DocumentVisualizer>
             <NavigationBar></NavigationBar>
         </div>
     )
