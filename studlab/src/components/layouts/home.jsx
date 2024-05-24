@@ -18,7 +18,7 @@ export default function Home({ docData, userData }) {
             setFilterDoc(docData);
         }
     };
-
+    console.log("RENDERIZAR",docData)
     const prevData = parsePrev(filterDoc, userData);
 
     return (

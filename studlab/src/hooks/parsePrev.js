@@ -14,11 +14,9 @@ export default function parsePrev(docs, users) {
       // retorna un array vacío
       return [];
     }
-
     const combinedData = docs.documentos
       .map((doc) => {
         const foundUser = users.find((user) => user.id === doc.idusuario);
-
         if (foundUser) {
           return {
             DocId: doc.id,

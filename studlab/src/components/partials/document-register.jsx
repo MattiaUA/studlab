@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Preferences } from '@capacitor/preferences';
+import { getSession } from '../../hooks/getSession';
 
 function DocumentRegister({ userData, documentData }) {
   const [titulo, setTitulo] = useState("");
@@ -10,6 +11,7 @@ function DocumentRegister({ userData, documentData }) {
   const [tema, setTema] = useState("");
   const [file, setFile] = useState(null);
   const [coverImage, setCoverImage] = useState(null);
+  const [user, setUser] = useState("");
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -35,7 +37,7 @@ function DocumentRegister({ userData, documentData }) {
     const newDocument = {
         titulo,
         id: documentData.documentos.length + 1,
-        idusuario: userData.id,
+        idusuario: user.id,
         descripcion,
         imagendeportada: coverImage ? URL.createObjectURL(coverImage) : "",
         visualizaciones: 0,
@@ -46,6 +48,16 @@ function DocumentRegister({ userData, documentData }) {
         tema,
         fecha: currentDate,
     };
+
+    async function checkSession() {
+      const user = await getSession();
+
+      if (!user) 
+        navigate("/login", { replace: true });
+      else
+        setUser(user);
+    }
+    checkSession();
 
     const updatedDocuments = {
         ...documentData,

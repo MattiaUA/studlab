@@ -14,7 +14,7 @@ export default function Preview(data) {
           <img className="bg-image" src={docImg} alt="Document Background Picture" />
         </Link>
         <div className="profile-pic profile-pic-prev">
-          <ProfilePic user={{ id: userId, fotourl: userPicture }}/>
+          <ProfilePic user={{ id: userId, fotourl: userPicture }} />
         </div>
       </div>
       <div style={{ padding: "5px" }}>
@@ -34,7 +34,7 @@ export default function Preview(data) {
 
 
 function getFormat(format) {
-  if (format === 'txt' || format === 'docx' || format === 'pdf') {
+  if (format === 'pdf') {
     return (
       <img src="../../../public/doc-icon.png" className="icon-pic " />
     )
@@ -43,6 +43,8 @@ function getFormat(format) {
       <img src="../../../public/video-icon.png" className="icon-pic " />
     )
   } else {
-    <img src="../../../public/image-icon.png" className="icon-pic " />
+    return (
+      <img src="../../../public/image-icon.png" className="icon-pic " />
+    )
   }
 }

@@ -344,7 +344,8 @@ iframe{
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-
+  gap:7px;
+  padding:  0 20px 10px 20px;
   & .profile-pic {
     padding-top: 0.25em;
     height: fit-content;
@@ -412,7 +413,6 @@ iframe{
   display: flex;
   flex-direction: row;
   list-style: none;
-  border-bottom: 1px solid var(--third-color);
   overflow-x: scroll;
   white-space: nowrap;
   position: sticky;
