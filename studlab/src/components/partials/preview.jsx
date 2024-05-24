@@ -6,6 +6,7 @@ import "./preview.css"
 export default function Preview(data) {
   const { DocId, userId, title, docImg, theme, userName, userPicture, format } = data.data
 
+
   return (
     <div className="preview-element-container">
       <div className="preview-img-container">

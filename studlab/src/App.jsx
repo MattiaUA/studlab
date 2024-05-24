@@ -14,6 +14,7 @@ import Home from './components/layouts/home';
 import SearchPage from './components/layouts/searchPage';
 import NavigationBar from './components/partials/navigation-bar';
 import LoginPage from './components/layouts/loginPage';
+import NotificationsPage from './components/layouts/notificationsPage';
 import RegistrationPage from './components/layouts/registrationPage';
 import RelevantFiles from './components/partials/relevantFiles';
 import SearchResults from './components/layouts/searchResults';
@@ -62,6 +63,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/search-results" element={<SearchResults docData={docData} userData={UsersData} />} />
+          <Route path="/notifications" element={<NotificationsPage data={docData["documentos"][1]}/>} />
         </Routes>
       </Router>
     </div>

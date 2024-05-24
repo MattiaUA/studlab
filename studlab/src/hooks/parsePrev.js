@@ -29,6 +29,7 @@ export default function parsePrev(docs, users) {
             format: doc.formato,
           };
         }
+        console.log("SIN USUARIO",doc.idusuario)
       })
       .filter((item) => item !== undefined);
 

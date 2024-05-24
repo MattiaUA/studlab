@@ -18,11 +18,23 @@ export default function Home({ docData, userData }) {
             setFilterDoc(docData);
         }
     };
+
+    useEffect(() => {
+        const loadDocumentData = async () => {
+          const { value } = await Preferences.get({ key: 'DocumentData' });
+          if (value) {
+            setFilterDoc(JSON.parse(value));
+          }
+        };
+        loadDocumentData();
+    },[docData]);
+
     console.log("RENDERIZAR",docData)
     const prevData = parsePrev(filterDoc, userData);
+    console.log("LISTA",filterDoc)
 
     return (
-        <>
+        <div className='relevan-files-container'>
             <ul className='categorias'>
                 <li><button onClick={() => handleNavClick("todos")} className={selectedNavItem === "todos" ? "active-home-nav" : ""}>Todos</button></li>
                 <li><button onClick={() => handleNavClick("ciencia")} className={selectedNavItem === "ciencia" ? "active-home-nav" : ""}>Ciencia</button></li>
@@ -39,6 +51,6 @@ export default function Home({ docData, userData }) {
                 ))}
                 <NavigationBar />
             </div>
-        </>
+        </div>
     );
 }
