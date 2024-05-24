@@ -19,7 +19,7 @@ function LoginPage() {
         for (const user of UsersData) {
             if (user.email === email && user.pwd === pwd) {
                 saveSession(user).then(() => {
-                    navigate('/');
+                    navigate('/home');
                 });
                 return;
             }

@@ -6,6 +6,7 @@ import "./preview.css"
 export default function Preview(data) {
   const { DocId, userId, title, docImg, theme, userName, userPicture, format } = data.data
 
+
   return (
     <div className="preview-element-container">
       <div className="preview-img-container">
@@ -14,7 +15,7 @@ export default function Preview(data) {
           <img className="bg-image" src={docImg} alt="Document Background Picture" />
         </Link>
         <div className="profile-pic profile-pic-prev">
-          <ProfilePic user={{ id: userId, fotourl: userPicture }}/>
+          <ProfilePic user={{ id: userId, fotourl: userPicture }} />
         </div>
       </div>
       <div style={{ padding: "5px" }}>
@@ -24,7 +25,7 @@ export default function Preview(data) {
             <p>{userName}</p>
           </div>
           <div className="add-img-container">
-            <img src="../../../public/add.png" className="add-pic" />
+            <img src="/add.png" className="add-pic" />
           </div>
         </div>
       </div>
@@ -34,15 +35,17 @@ export default function Preview(data) {
 
 
 function getFormat(format) {
-  if (format === 'txt' || format === 'docx' || format === 'pdf') {
+  if (format === 'pdf') {
     return (
-      <img src="../../../public/doc-icon.png" className="icon-pic " />
+      <img src="/doc-icon.png" className="icon-pic " />
     )
   } if (format === 'avi' || format === 'mp4') {
     return (
-      <img src="../../../public/video-icon.png" className="icon-pic " />
+      <img src="/video-icon.png" className="icon-pic " />
     )
   } else {
-    <img src="../../../public/image-icon.png" className="icon-pic " />
+    return (
+      <img src="../../../public/image-icon.png" className="icon-pic " />
+    )
   }
 }

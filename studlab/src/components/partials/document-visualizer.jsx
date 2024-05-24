@@ -56,9 +56,9 @@ function DocumentVisualizer({ data }) {
             </div>
             <ul className="document-nav">
                 <li>
-                    <button onClick={() => handleNavClick("comments")} className={selectedNavItem === "comments" ? "active-document-nav" : ""}>
+                    {data.comentarios && <button onClick={() => handleNavClick("comments")} className={selectedNavItem === "comments" ? "active-document-nav" : ""}>
                         Comentarios{"(" + Object.keys(data.comentarios).length + ")"}
-                    </button>
+                    </button>}
                 </li>
                 <li>
                     <button onClick={() => handleNavClick("archive")} className={selectedNavItem === "archive" ? "active-document-nav" : ""}>
