@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 
@@ -7,7 +7,7 @@ import { StatusBar, Style } from '@capacitor/status-bar';
 
 import DocumentPage from './components/layouts/documentPage';
 import NewDocumentPage from './components/layouts/documentNew';
-
+import { Preferences } from '@capacitor/preferences';
 import './App.css';
 import UsersData from './exampledata/Users.json';
 import DocumentData from './exampledata/Documents.json'
@@ -16,8 +16,13 @@ import SearchPage from './components/layouts/searchPage';
 import NavigationBar from './components/partials/navigation-bar';
 import LoginPage from './components/layouts/loginPage';
 import RegistrationPage from './components/layouts/registrationPage';
+import RelevantFiles from './components/partials/relevantFiles';
+import SearchResults from './components/layouts/searchResults';
+import ProfilePage from './components/layouts/profilePage';
+import UserPage from './components/layouts/userPage';
 
 function App() {
+
   if (Capacitor.isNativePlatform()) {
     setTimeout(() => {
       // Color de la barra de estado nativa
@@ -36,13 +41,16 @@ function App() {
     <div className='main-content'>
       <Router>
         <Routes>
-          <Route path="/" element={<DocumentPage data={DocumentData["documentos"][0]}/>} />
-          <Route path="/new" element={<NewDocumentPage userData={UsersData}/>} />
-          <Route path="/preview" element={<Home docData={DocumentData} userData={UsersData} />} />
+          <Route path="/profile/:id" element={<UserPage docData={DocumentData} />} />
+          <Route path="/profile" element={<ProfilePage docData={DocumentData} />} />
+          <Route path="/preview/:id" element={<DocumentPage docData={DocumentData} />} />
+          <Route path="/new" element={<NewDocumentPage userData={UsersData} DocumentData={DocumentData} />} />
+          <Route path="/home" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/search" element={<SearchPage docData={DocumentData} userData={UsersData} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/search-results" element={<SearchResults docData={DocumentData} userData={UsersData} />} />
         </Routes>
       </Router>
     </div>

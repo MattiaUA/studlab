@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
-import parsePrev from '../../hooks/parsePrev'
-import Preview from '../partials/preview'
-import UsuariosReel from '../partials/usuarios-reel'
+import React, { useState, useEffect } from 'react';
+import parsePrev from '../../hooks/parsePrev';
+import Preview from '../partials/preview';
+import UsuariosReel from '../partials/usuarios-reel';
 import NavigationBar from '../partials/navigation-bar';
+import { Preferences } from '@capacitor/preferences';
 
-export default function Home(props) {
-    const { docData, userData } = props;
+export default function Home({ docData, userData }) {
+    
     const [filterDoc, setFilterDoc] = useState(docData);
     const [selectedNavItem, setSelectedNavItem] = useState("todos");
 
     const handleNavClick = (navItem) => {
         setSelectedNavItem(navItem);
-        if (navItem != "todos")
+        if (navItem !== "todos") {
             setFilterDoc({ 'documentos': docData["documentos"].filter(doc => doc.carrera.toLowerCase().includes(navItem)) });
-        else
+        } else {
             setFilterDoc(docData);
+        }
     };
 
-    const prevData = parsePrev(filterDoc, userData)
+    const prevData = parsePrev(filterDoc, userData);
+
     return (
         <>
             <ul className='categorias'>
@@ -37,5 +40,5 @@ export default function Home(props) {
                 <NavigationBar />
             </div>
         </>
-    )
+    );
 }

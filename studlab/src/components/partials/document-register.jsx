@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Preferences } from '@capacitor/preferences';
 
-function DocumentRegister({ userData, documentData, setDocumentData }) {
+function DocumentRegister({ userData, documentData }) {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [carrera, setCarrera] = useState("");
@@ -26,69 +27,73 @@ function DocumentRegister({ userData, documentData, setDocumentData }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const currentDate = new Date().toISOString().split('T')[0];
 
     const newDocument = {
-      titulo,
-      id: documentData.documentos.length + 1,  // Generar un nuevo id basado en la longitud actual del array
-      idusuario: userData.id,
-      descripcion,
-      imagendeportada: coverImage ? URL.createObjectURL(coverImage) : "",
-      visualizaciones: 0,
-      documentourl: file ? URL.createObjectURL(file) : "",
-      formato,
-      carrera,
-      asignatura,
-      tema,
-      fecha: currentDate,
+        titulo,
+        id: documentData.documentos.length + 1,
+        idusuario: userData.id,
+        descripcion,
+        imagendeportada: coverImage ? URL.createObjectURL(coverImage) : "",
+        visualizaciones: 0,
+        documentourl: file ? URL.createObjectURL(file) : "",
+        formato,
+        carrera,
+        asignatura,
+        tema,
+        fecha: currentDate,
     };
-
-    console.log(newDocument);
 
     const updatedDocuments = {
-      ...documentData,
-      documentos: [...documentData.documentos, newDocument]
+        ...documentData,
+        documentos: [...documentData.documentos, newDocument]
     };
 
-    setDocumentData(updatedDocuments);
+    try {
+        await Preferences.set({ key: 'DocumentData', value: JSON.stringify(updatedDocuments) });
+        alert("Documento subido con éxito");
+    } catch (error) {
+        console.error('Error saving document data to preferences:', error);
+        alert("Error al subir el documento");
+    }
+};
 
-    alert("Documento subido con éxito");
-  };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="submit-form">
+        <h1>Publicar un documento</h1>
       <div>
         <label>Título</label>
-        <input type="text" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
+        <input className="search-input" type="text" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
       </div>
       <div>
         <label>Descripción</label>
-        <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)}></textarea>
+        <textarea className="search-input"  value={descripcion} onChange={(e) => setDescripcion(e.target.value)}></textarea>
       </div>
       <div>
         <label>Carrera</label>
-        <input type="text" value={carrera} onChange={(e) => setCarrera(e.target.value)} />
+        <input className="search-input"  type="text" value={carrera} onChange={(e) => setCarrera(e.target.value)} />
       </div>
       <div>
         <label>Asignatura</label>
-        <input type="text" value={asignatura} onChange={(e) => setAsignatura(e.target.value)} />
+        <input className="search-input"  type="text" value={asignatura} onChange={(e) => setAsignatura(e.target.value)} />
       </div>
       <div>
         <label>Tema</label>
-        <input type="text" value={tema} onChange={(e) => setTema(e.target.value)} />
+        <input className="search-input"  type="text" value={tema} onChange={(e) => setTema(e.target.value)} />
       </div>
       <div>
         <label>Subir Archivo</label>
-        <input type="file" onChange={handleFileChange} />
+        <input className="search-input"  type="file" onChange={handleFileChange} />
       </div>
       <div>
         <label>Subir Imagen de Portada</label>
-        <input type="file" onChange={handleCoverImageChange} />
+        <input className="search-input"  type="file" onChange={handleCoverImageChange} />
       </div>
-      <button type="submit">Subir Documento</button>
+      <button className="search-input"  type="submit">Subir Documento</button>
     </form>
   );
 }

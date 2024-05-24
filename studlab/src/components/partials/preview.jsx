@@ -1,4 +1,5 @@
 import ProfilePic from "./profile-pic"
+import { Link } from 'react-router-dom';
 import "./preview.css"
 
 // - Las letras salen del css
@@ -9,7 +10,9 @@ export default function Preview(data) {
     <div className="preview-element-container">
       <div className="preview-img-container">
         {getFormat(format)}
-        <img className="bg-image" src={docImg} alt="Document Background Picture" />
+        <Link to={`/preview/${DocId}`}>
+          <img className="bg-image" src={docImg} alt="Document Background Picture" />
+        </Link>
         <div className="profile-pic profile-pic-prev">
           <ProfilePic user={{ id: userId, fotourl: userPicture }}/>
         </div>
@@ -21,7 +24,7 @@ export default function Preview(data) {
             <p>{userName}</p>
           </div>
           <div className="add-img-container">
-            <img src="add.png" className="add-pic" />
+            <img src="../../../public/add.png" className="add-pic" />
           </div>
         </div>
       </div>
@@ -33,13 +36,13 @@ export default function Preview(data) {
 function getFormat(format) {
   if (format === 'txt' || format === 'docx' || format === 'pdf') {
     return (
-      <img src="doc-icon.png" className="icon-pic " />
+      <img src="../../../public/doc-icon.png" className="icon-pic " />
     )
   } if (format === 'avi' || format === 'mp4') {
     return (
-      <img src="video-icon.png" className="icon-pic " />
+      <img src="../../../public/video-icon.png" className="icon-pic " />
     )
   } else {
-    <img src="image-icon.png" className="icon-pic " />
+    <img src="../../../public/image-icon.png" className="icon-pic " />
   }
 }

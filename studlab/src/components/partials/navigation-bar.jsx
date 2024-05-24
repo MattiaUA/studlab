@@ -32,19 +32,23 @@ function NavigationBar() {
 
   return (
     <div className="nav-bar">
-      <Link to="home">
+      <Link to="/home">
         <img src="/home.png" alt="Home"></img>
       </Link>
-      <Link to={"search"}>
+      <Link to={"/search"}>
         <img src="/search.png" alt="Search"></img>
       </Link>
-      <Link to={"new"}>
+      <Link to={"/new"}>
         <img src="/plus.png" alt="New"></img>
       </Link>
-      <Link to={"notifications"}>
+      <Link to={"/notifications"}>
         <img src="/notification.png" alt="Notifications"></img>
       </Link>
-      <ProfilePic user={user}></ProfilePic>
+      <Link to={"/profile"}>
+        <div className="profile-pic">
+            <img src={user.fotourl} alt='Foto de perfil del usuario'/>
+        </div>
+      </Link>
     </div>
   )
 }
