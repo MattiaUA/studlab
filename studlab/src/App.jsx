@@ -23,15 +23,25 @@ import UserPage from './components/layouts/userPage';
 
 function App() {
   const [docData, setDocData] = useState(DocumentData);
+  const [userData, setUserData] = useState();
 
   useEffect(() => {
+    // AQUI VA EL FECTH AL SERVIDOR PARA TOMAR LOS ARCHIVOS SUBIDOS
     const loadDocumentData = async () => {
       const { value } = await Preferences.get({ key: 'DocumentData' });
       if (value) {
         setDocData(JSON.parse(value));
       }
     };
+    // AQUI VA EL FECTH AL SERVIDOR PARA TOMAR EL USER ACTUAL
+    const loadUser = async()=>{
+      const {value} = await Preferences.get({key: 'UserData'});
+      if (value) {
+        setUserData(JSON.parse(value));
+      }
+    }
 
+    loadUser();
     loadDocumentData();
 
     if (Capacitor.isNativePlatform()) {

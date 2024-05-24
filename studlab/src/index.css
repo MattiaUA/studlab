@@ -191,6 +191,10 @@ iframe{
   flex-direction: column;
   padding: 10px 0 10px 0;
   gap:10px;
+  & textarea{
+    resize: none;
+    font-family: var(--font-fam);
+  }
 }
 
 .comment-header{
@@ -516,11 +520,6 @@ iframe{
   color: var(--secondary-color);
 }
 
-.danger-button {
-  background-color: #f0041c;
-  color: white;
-}
-
 /* Dropdowns */
 .dropdown-container {
   display: flex;
@@ -553,6 +552,10 @@ iframe{
   flex-direction: column;
   align-items: flex-start;
   margin: 4px 0px 0px 20px
+}
+
+.home-container{
+  
 }
 
 .date-inputs {

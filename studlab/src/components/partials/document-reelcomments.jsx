@@ -70,7 +70,7 @@ function DocumentReelComments({ data }) {
                     onChange={handleCommentChange}
                     placeholder="Escribe un comentario..."
                 />
-                <button onClick={handleCommentSubmit}>Añadir Comentario</button>
+                <button className="search-input" onClick={handleCommentSubmit}>Añadir Comentario</button>
             </div>
         </div>
     );

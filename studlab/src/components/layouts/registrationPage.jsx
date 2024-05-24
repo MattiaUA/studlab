@@ -20,7 +20,7 @@ function RegistrationPage() {
   function handleSubmit(e) {
     e.preventDefault();
     saveSession(2).then(() => {
-      navigate('/');
+      navigate('/home');
     });
   }
 

@@ -10,12 +10,15 @@ function LoginPage() {
     const [pwd, setPwd] = useState("");
     const navigate = useNavigate();
 
+    // AQUI ALMACENO AL USUARIO INGRESADO EN LOCAL
     async function saveSession(user) {
-        await Preferences.set({ key: 'idUser', value: JSON.stringify(user.id) });
+        await Preferences.set({ key: 'UserData', value: JSON.stringify(user) });
     }
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        // AQUI VA EL FETCH POST PARA VERIFICAR AL USUARIO
         for (const user of UsersData) {
             if (user.email === email && user.pwd === pwd) {
                 saveSession(user).then(() => {
@@ -26,7 +29,7 @@ function LoginPage() {
         }
 
         //TODO: Poner algo mas bonito
-        alert("Credenciales incorrectas");
+        alert("Verifica los datos de inicio de sesión.");
     }
 
     return (
