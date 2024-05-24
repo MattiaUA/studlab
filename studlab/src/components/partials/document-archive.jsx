@@ -41,7 +41,7 @@ function DocumentArchive({ data }) {
             </div>
             <div className="archive-input">
                 <a href={data.documentourl} download={getFileNameFromUrl(data.documentourl)}>
-                    <img src="/public/download.png" alt="Download" />
+                    <img src="/download.png" alt="Download" />
                 </a>
             </div>
         </div>
