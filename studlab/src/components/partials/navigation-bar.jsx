@@ -12,10 +12,10 @@ function NavigationBar() {
   const navigate = useNavigate();
 
   // Para debugear. Cierra sesion si se agita el movil
-  Motion.addListener('accel', event => {
+  /*Motion.addListener('accel', event => {
     if (event.acceleration.x > 10) 
       Motion.removeAllListeners().then(() => Preferences.remove({ key: 'idUser' }).then(() => navigate("/login")));
-  });
+  });*/
 
   // Si no se ha iniciado sesion, redirige a login
   useEffect(() => {

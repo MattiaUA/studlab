@@ -55,6 +55,10 @@ function ProfilePage({ docData }) {
         setFormValues({ ...formValues, [name]: value });
     };
 
+    const handleLogout = () => {
+        Preferences.remove({ key: 'idUser' }).then(() => navigate("/login"));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -73,6 +77,7 @@ function ProfilePage({ docData }) {
                         <div>
                         <h2>{user.nombre}</h2>
                         {editing ? null : <button onClick={handleEditClick} className='search-input profile-button'>Editar</button>}
+                        <button onClick={handleLogout} className='profile-button search-input danger-button' >Logout</button>
                         </div>
                     </div>
                     {editing ? (
@@ -122,7 +127,7 @@ function ProfilePage({ docData }) {
             )}
             <div className='previews'>
                 {prevData.map((prev, index) => (
-                    <div>
+                    <div key={index}>
                         <Preview key={index} data={prev} />
                         <button className='search-input'>Eliminar</button>
                     </div>

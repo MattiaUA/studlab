@@ -516,6 +516,11 @@ iframe{
   color: var(--secondary-color);
 }
 
+.danger-button {
+  background-color: #f0041c;
+  color: white;
+}
+
 /* Dropdowns */
 .dropdown-container {
   display: flex;
