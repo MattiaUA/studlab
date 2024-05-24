@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavigationBar from "../partials/navigation-bar";
 import DocumentRegister from "../partials/document-register";
-import DocumentData from '../../exampledata/Documents.json'
+// import DocumentData from '../../exampledata/Documents.json'
 
 function NewDocumentPage({userData,docData}) {
     return (

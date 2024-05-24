@@ -52,15 +52,15 @@ function DocumentRegister({ userData, documentData }) {
     }
 
     const currentDate = new Date().toISOString().split('T')[0];
-    
+
     const newDocument = {
       titulo,
       id: documentData.documentos.length + 1,
       idusuario: user.id,
       descripcion,
-      imagendeportada: "https://picsum.photos/200/300",
+      imagendeportada: coverImage ? URL.createObjectURL(coverImage) : "",
       visualizaciones: 0,
-      documentourl: "../../public/pdf_demo2.pdf",
+      documentourl: file ? URL.createObjectURL(file) : "",
       formato,
       carrera,
       asignatura,
