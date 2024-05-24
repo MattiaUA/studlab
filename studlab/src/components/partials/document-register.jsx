@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Preferences } from '@capacitor/preferences';
+import * as updateDocs from '../../hooks/updateDocs';
 
 function DocumentRegister({ userData, documentData }) {
   const [titulo, setTitulo] = useState("");
@@ -31,7 +32,7 @@ function DocumentRegister({ userData, documentData }) {
     e.preventDefault();
     
     const currentDate = new Date().toISOString().split('T')[0];
-
+    console.log(documentData.documentos)
     const newDocument = {
         titulo,
         id: documentData.documentos.length + 1,
@@ -54,6 +55,7 @@ function DocumentRegister({ userData, documentData }) {
 
     try {
         await Preferences.set({ key: 'DocumentData', value: JSON.stringify(updatedDocuments) });
+        updateDocs.uploadDocs(documentData, updatedDocuments)
         alert("Documento subido con éxito");
     } catch (error) {
         console.error('Error saving document data to preferences:', error);
