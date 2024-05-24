@@ -46,6 +46,7 @@ function App() {
           <Route path="/preview/:id" element={<DocumentPage docData={DocumentData} />} />
           <Route path="/new" element={<NewDocumentPage userData={UsersData} DocumentData={DocumentData} />} />
           <Route path="/home" element={<Home docData={DocumentData} userData={UsersData} />} />
+          <Route path="/" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/preview-carrousel" element={<Home docData={DocumentData} userData={UsersData} />} />
           <Route path="/search" element={<SearchPage docData={DocumentData} userData={UsersData} />} />
           <Route path="/login" element={<LoginPage />} />
