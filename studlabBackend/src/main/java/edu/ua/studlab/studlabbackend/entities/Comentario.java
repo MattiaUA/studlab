@@ -1,5 +1,6 @@
 package edu.ua.studlab.studlabbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -13,10 +14,12 @@ public class Comentario
     @Column(name = "id", nullable = false)
     private int id;
 
+    @JsonIgnoreProperties(value = {"comentarios", "handler","hibernateLazyInitializer"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idusuario")
     private User idusuario;
 
+    @JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "iddocumento")
     private Documento iddocumento;

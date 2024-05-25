@@ -1,5 +1,6 @@
 package edu.ua.studlab.studlabbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
@@ -19,6 +20,7 @@ public class Documento
     @Column(name = "titulo")
     private String titulo;
 
+    @JsonIgnoreProperties(value = {"documentos", "handler","hibernateLazyInitializer"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idusuario")
     private User idusuario;
@@ -57,6 +59,7 @@ public class Documento
     @Column(name = "fecha")
     private LocalDate fecha;
 
+    @JsonIgnoreProperties(value = {"iddocumento", "idusuario", "handler", "hibernateLazyInitializer"}, allowSetters = true)
     @OneToMany(mappedBy = "iddocumento")
     private Set<Comentario> comentarios = new LinkedHashSet<>();
 

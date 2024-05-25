@@ -1,5 +1,6 @@
 package edu.ua.studlab.studlabbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
@@ -38,9 +39,7 @@ public class User
     @Column(name = "fotourl")
     private String fotourl;
 
-    @OneToMany(mappedBy = "idusuario")
-    private Set<Comentario> comentarios = new LinkedHashSet<>();
-
+    @JsonIgnoreProperties(value = {"idusuario", "handler","hibernateLazyInitializer"}, allowSetters = true)
     @OneToMany(mappedBy = "idusuario")
     private Set<Documento> documentos = new LinkedHashSet<>();
 
@@ -112,16 +111,6 @@ public class User
     public void setFotourl(String fotourl)
     {
         this.fotourl = fotourl;
-    }
-
-    public Set<Comentario> getComentarios()
-    {
-        return comentarios;
-    }
-
-    public void setComentarios(Set<Comentario> comentarios)
-    {
-        this.comentarios = comentarios;
     }
 
     public Set<Documento> getDocumentos()
