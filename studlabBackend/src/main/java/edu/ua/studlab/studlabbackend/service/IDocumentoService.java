@@ -7,7 +7,7 @@ import java.util.List;
 public interface IDocumentoService
 {
     public List<Documento> find();
-    public Documento findById(Integer id);
+    public Documento findById(int id);
     public Documento save(Documento documento);
-    public void deleteById(Integer id);
+    public void deleteById(int id);
 }
