@@ -7,7 +7,7 @@ import edu.ua.studlab.studlabbackend.entities.Comentario;
 
 public interface IComentarioService
 {
-    public List<Comentario> findAll();
-    public Comentario findById(Integer id);
+    public List<Comentario> find();
+    public Comentario findById(int id);
     public Comentario save(Comentario comentario);
 }
