@@ -18,7 +18,7 @@ function NotificationsPage({ data }) {
                 {comments.map(element => (
                     <div key={element.id}>
                         <div className="comment-header">
-                            <ProfilePic user={findUser(element.idusuario)} />
+                            <ProfilePic userid={element.idusuario} />
                             <p><strong>{findUser(element.idusuario).nombre} ha comentado en {data.titulo}</strong></p>
                         </div>
                         <p>{element.comentario}</p>

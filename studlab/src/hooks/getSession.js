@@ -1,7 +1,7 @@
 import { Preferences } from '@capacitor/preferences';
 
-import UsersData from '../exampledata/Users.json';
 export async function getSession() {
-    const idUser = await Preferences.get({ key: 'idUser' });
-    return UsersData.find(u => u.id == idUser.value);
+    const user = await Preferences.get({ key: 'UserData' });
+    //console.log("getSession",user)
+    return user;
 }

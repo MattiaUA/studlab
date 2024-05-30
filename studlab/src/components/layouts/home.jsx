@@ -1,37 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import parsePrev from '../../hooks/parsePrev';
 import Preview from '../partials/preview';
 import UsuariosReel from '../partials/usuarios-reel';
 import NavigationBar from '../partials/navigation-bar';
-import { Preferences } from '@capacitor/preferences';
 
-export default function Home({ docData, userData }) {
+export default function Home() {
     
-    const [filterDoc, setFilterDoc] = useState(docData);
     const [selectedNavItem, setSelectedNavItem] = useState("todos");
+    const [docsRaw,setDocuments] = useState({});
+    const [docsRender,setRenders] = useState({});
+
+    useEffect(() => {
+        async function fetchDocuments() {
+            try {
+                const response = await fetch('https://studlab.marcosruizrubio.com/documento');
+                if (!response.ok) {
+                    throw new Error('Error al recuperar los documentos');
+                }
+                const data = await response.json();
+                setDocuments(data);
+                setRenders(data);
+            } catch (error) {
+                setError(error.message);
+            } 
+        }
+        fetchDocuments();
+    }, []);
 
     const handleNavClick = (navItem) => {
         setSelectedNavItem(navItem);
         if (navItem !== "todos") {
-            setFilterDoc({ 'documentos': docData["documentos"].filter(doc => doc.carrera.toLowerCase().includes(navItem)) });
+            setRenders(docsRaw.filter(doc => doc.carrera.toLowerCase().includes(navItem)));
         } else {
-            setFilterDoc(docData);
+            setRenders(docsRaw);
         }
     };
-
-    useEffect(() => {
-        const loadDocumentData = async () => {
-          const { value } = await Preferences.get({ key: 'DocumentData' });
-          if (value) {
-            setFilterDoc(JSON.parse(value));
-          }
-        };
-        loadDocumentData();
-    },[docData]);
-
-    console.log("RENDERIZAR",docData)
-    const prevData = parsePrev(filterDoc, userData);
-    console.log("LISTA",filterDoc)
 
     return (
         <div className='relevan-files-container'>
@@ -44,9 +46,9 @@ export default function Home({ docData, userData }) {
                 <li><button onClick={() => handleNavClick("química")} className={selectedNavItem === "química" ? "active-home-nav" : ""}>Química</button></li>
                 <li><button onClick={() => handleNavClick("psicología")} className={selectedNavItem === "psicología" ? "active-home-nav" : ""}>Psicología</button></li>
             </ul>
-            <UsuariosReel users={userData} />
+            <UsuariosReel/>
             <div className='previews'>
-                {prevData.map((prev, index) => (
+                {Array.isArray(docsRender) && docsRender.map((prev, index) => (
                     <Preview key={index} data={prev} />
                 ))}
                 <NavigationBar />

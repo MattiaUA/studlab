@@ -1,49 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import NavigationBar from "../partials/navigation-bar";
 import { getSession } from '../../hooks/getSession';
-import parsePrev from '../../hooks/parsePrev';
 import { Preferences } from '@capacitor/preferences';
 import { useNavigate } from "react-router";
-import UsersData from '../../exampledata/Users.json';
-import DocumentData from '../../exampledata/Documents.json'
 import Preview from '../partials/preview';
 
-function ProfilePage({ docData }) {
-    const [user, setUser] = useState("");
+
+function ProfilePage() {
     const navigate = useNavigate();
-    const [filterDoc, setFilterDoc] = useState(docData);
-
-    useEffect(() => {
-        async function checkSession() {
-            const user = await getSession();
-            if (!user)
-                navigate("/login", { replace: true });
-            else
-                setUser(user);
-            setFilterDoc({ 'documentos': docData["documentos"].filter(doc => doc.idusuario === user.id) });
-        }
-        checkSession();
-    }, [navigate]);
-
-    const prevData = parsePrev(filterDoc, UsersData);
-
+    const [docs, setDocuments] = useState([]);
+    const [user, setUser] = useState(null);
     const [editing, setEditing] = useState(false);
     const [formValues, setFormValues] = useState({});
 
     useEffect(() => {
-        const loaduser = () => {
+        async function checkSessionAndFetchData() {
+            const userTmp = await getSession();
+            if (!userTmp) {
+                navigate("/login", { replace: true });
+            } else {
+                const data = JSON.parse(userTmp.value);
+                setUser(data);
+
+                const response = await fetch('https://studlab.marcosruizrubio.com/documento');
+                if (!response.ok) {
+                    throw new Error('Error al recuperar los documentos');
+                }
+
+                const documents = await response.json();
+                const selfDocs = documents.filter(doc => doc.idusuario.id === data.id);
+                setDocuments(selfDocs);
+            }
+        }
+
+        checkSessionAndFetchData();
+    }, [navigate]);
+
+    useEffect(() => {
+        const loadUser = () => {
             try {
-                setFormValues({
-                    nombre: user.nombre,
-                    email: user.email,
-                    telefono: user.telefono,
-                    carrera: user.carrera
-                });
+                if (user != null) {
+                    setFormValues({
+                        nombre: user.nombre,
+                        email: user.email,
+                        telefono: user.telefono,
+                        carrera: user.carrera
+                    })
+                }
             } catch (error) {
                 console.error('Error loading user data:', error);
             }
         };
-        loaduser();
+
+        loadUser();
     }, [user]);
 
     const handleEditClick = () => {
@@ -56,28 +65,54 @@ function ProfilePage({ docData }) {
     };
 
     const handleLogout = () => {
-        Preferences.remove({ key: 'idUser' }).then(() => navigate("/login"));
+        Preferences.remove({ key: 'UserData' }).then(() => navigate("/login"));
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log('Formulario enviado:', formValues);
+            const response = await fetch(`https://studlab.marcosruizrubio.com/user/${user.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formValues)
+            });
+
+            if (!response.ok) {
+                throw new Error('Error updating user');
+            }
+
+            const updatedUser = await response.json();
+            setUser(updatedUser);
+            setFormValues({
+                nombre: updatedUser.nombre,
+                email: updatedUser.email,
+                telefono: updatedUser.telefono,
+                carrera: updatedUser.carrera
+            });
             setEditing(false);
+            console.log('Formulario enviado:', formValues);
         } catch (error) {
             console.error('Error submitting form:', error);
         }
     };
+
+    const handleDelete = (id) => {
+        // Lógica para eliminar el documento con el ID proporcionado
+        console.log(`Eliminar documento con ID: ${id}`);
+    };
+
+
     return (
         <div className="profile-page">
             {user ? (
                 <div>
-                    <div className='profile-header'>                    
+                    <div className='profile-header'>
                         <img className='profile-image' src={user.fotourl} alt="Foto de perfil" />
                         <div>
-                        <h2>{user.nombre}</h2>
-                        {editing ? null : <button onClick={handleEditClick} className='search-input profile-button'>Editar</button>}
-                        <button onClick={handleLogout} className='profile-button search-input danger-button' >Logout</button>
+                            <h2>{user.nombre}</h2>
+                            {editing ? null : <button onClick={handleEditClick} className='search-input profile-button'>Editar</button>}
+                            <button onClick={handleLogout} className='profile-button search-input danger-button' >Logout</button>
                         </div>
                     </div>
                     {editing ? (
@@ -118,7 +153,7 @@ function ProfilePage({ docData }) {
                                 <label>Carrera:</label>
                                 <input className='search-input' type="text" name="carrera" value={formValues.carrera} disabled />
                             </div>
-                            
+
                         </div>
                     )}
                 </div>
@@ -126,14 +161,14 @@ function ProfilePage({ docData }) {
                 <p>Cargando...</p>
             )}
             <div className='previews'>
-                {prevData.map((prev, index) => (
+                {Array.isArray(docs) && docs.map((prev, index) => (
                     <div key={index}>
                         <Preview key={index} data={prev} />
                         <button className='search-input'>Eliminar</button>
                     </div>
-
                 ))}
             </div>
+
             <NavigationBar></NavigationBar>
         </div>
     );

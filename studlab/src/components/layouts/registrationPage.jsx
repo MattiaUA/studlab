@@ -17,11 +17,39 @@ function RegistrationPage() {
     await Preferences.set({ key: 'idUser', value: JSON.stringify(id) });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    saveSession(2).then(() => {
-      navigate('/home');
-    });
+
+    const newUser = {
+      nombre: nombre,
+      email: email,
+      telefono: telefono,
+      pwd: pwd,
+      carrera: carrera,
+      fotourl: imagen,
+      documentos: []
+    };
+
+    try {
+      const response = await fetch('https://studlab.marcosruizrubio.com/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUser)
+      });
+
+      if (response.ok) {
+        const user = await response.json();
+        await saveSession(user);
+        navigate('/home');
+      } else {
+        alert("Error en el registro. Por favor, intenta nuevamente.");
+      }
+    } catch (error) {
+      console.error("Error en la petición:", error);
+      alert("Hubo un error al intentar registrarse. Por favor, intenta nuevamente.");
+    }
   }
 
   function takePhoto() {
@@ -42,7 +70,7 @@ function RegistrationPage() {
   }
 
   function PrevisualizacionFoto() {
-    if (imagen) return <img src={imagen} />;
+    if (imagen) return <img src={imagen} alt="Previsualizacion de imagen"/>;
     return "";
   }
 

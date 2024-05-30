@@ -5,7 +5,7 @@ import NavigationBar from "../partials/navigation-bar";
 import DocumentVisualizer from "../partials/document-visualizer";
 import { Preferences } from '@capacitor/preferences';
 
-function DocumentPage({docData}) {
+function DocumentPage({docData,selfData}) {
 
     const [docs, setDocs] = useState(docData);
     const { id } = useParams();
@@ -31,7 +31,7 @@ function DocumentPage({docData}) {
 
     return (
         <div className="document-page">
-            { doc && <DocumentVisualizer data={doc} />}
+            { doc && <DocumentVisualizer data={doc} selfData={selfData}/>}
             <NavigationBar />
         </div>
     );
