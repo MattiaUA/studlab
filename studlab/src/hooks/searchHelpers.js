@@ -1,5 +1,4 @@
-import UsersData from "../exampledata/Users.json";
-import DocumentData from "../exampledata/Documents.json";
+
 
 function filterDocsByTitle(documents, searchWords, filters) {
   return documents.filter(
@@ -33,21 +32,22 @@ function getDocsByUsers(documents, users, filters) {
   );
 }
 
-function docApartheid(filteredDocs) {
-  let vidDocs = { documentos: [] };
-  let docDocs = { documentos: [] };
-  let imgDocs = { documentos: [] };
-  filteredDocs.forEach((doc) => {
+function docApartheid(docs) {
+  let vidDocs = [];
+  let docDocs = [];
+  let imgDocs = [];
+  docs.forEach((doc) => {
     if (["avi", "mp4"].includes(doc.formato)) {
-      vidDocs.documentos.push(doc);
+      vidDocs.push(doc);
     } else if (["png", "jpeg", "jpg"].includes(doc.formato)) {
-      imgDocs.documentos.push(doc);
+      imgDocs.push(doc);
     } else if (["txt", "docx", "pdf"].includes(doc.formato)) {
-      docDocs.documentos.push(doc);
+      docDocs.push(doc);
     }
   });
   return { vidDocs, docDocs, imgDocs };
 }
+
 
 /**
  * Retrieves filtered documents based on the provided filters.
@@ -63,63 +63,85 @@ function docApartheid(filteredDocs) {
  * @param {string} filters.class - The class to filter documents by.
  * @returns {Array} - The filtered documents.
  */
-export function getDocs(filters) {
-  let filteredDocs = DocumentData.documentos;
-  if (filters.search !== "" && filters.search !== undefined) {
-    const searchWords = filters.search.toLowerCase().split(" ");
+export async function getDocs(filters) {
+  try {
+    const documentData = await fetchDocuments();
+    const usersData = await fetchUser();
 
-    const filteredDocsBySearch = filterDocsByTitle(
-      DocumentData.documentos,
-      searchWords,
-      filters
-    );
-    const filteredUsersBySearch = filterUsersByName(UsersData, searchWords);
-    const docsByUsers = getDocsByUsers(
-      DocumentData.documentos,
-      filteredUsersBySearch,
-      filters
-    );
+    let filteredDocs = documentData;
 
-    filteredDocs = [...new Set([...filteredDocsBySearch, ...docsByUsers])];
+    if (filters.search && filters.search !== "") {
+      const searchWords = filters.search.toLowerCase().split(" ");
+      const filteredDocsBySearch = filterDocsByTitle(documentData, searchWords, filters);
+      const filteredUsersBySearch = filterUsersByName(usersData, searchWords);
+      const docsByUsers = getDocsByUsers(documentData, filteredUsersBySearch, filters);
+
+      filteredDocs = [...new Set([...filteredDocsBySearch, ...docsByUsers])];
+    }
+
+    if (filters.vid) {
+      filteredDocs = filteredDocs.filter((doc) => ["avi", "mp4"].includes(doc.formato));
+    }
+
+    if (filters.img) {
+      filteredDocs = filteredDocs.filter((doc) => ["png", "jpeg", "jpg"].includes(doc.formato));
+    }
+
+    if (filters.doc) {
+      filteredDocs = filteredDocs.filter((doc) => ["txt", "docx", "pdf"].includes(doc.formato));
+    }
+
+    if (filters.startDate) {
+      filteredDocs = filteredDocs.filter((doc) => new Date(doc.fecha) >= new Date(filters.startDate));
+    }
+
+    if (filters.endDate) {
+      filteredDocs = filteredDocs.filter((doc) => new Date(doc.fecha) <= new Date(filters.endDate));
+    }
+
+    if (filters.career) {
+      filteredDocs = filteredDocs.filter((doc) => doc.carrera.toLowerCase() === filters.career.toLowerCase());
+    }
+
+    if (filters.class) {
+      filteredDocs = filteredDocs.filter((doc) => doc.asignatura.toLowerCase() === filters.class.toLowerCase());
+    }
+    const { vidDocs, docDocs, imgDocs } = docApartheid(filteredDocs);
+    return { vidDocs, docDocs, imgDocs };
+  } catch (error) {
+    console.error("Error al obtener los documentos:", error);
+    throw error;
   }
-  if (filters.vid) {
-    filteredDocs = DocumentData.documentos.filter((doc) =>
-      ["avi", "mp4"].includes(doc.formato)
-    );
-  }
-  if (filters.img) {
-    filteredDocs = DocumentData.documentos.filter((doc) =>
-      ["png", "jpeg", "jpg"].includes(doc.formato)
-    );
-  }
-  if (filters.doc) {
-    filteredDocs = DocumentData.documentos.filter((doc) =>
-      ["txt", "docx", "pdf"].includes(doc.formato)
-    );
-  }
-  if (filters.startDate) {
-    filteredDocs = filteredDocs.filter(
-      (doc) => new Date(doc.fecha) >= new Date(filters.startDate)
-    );
-  }
-  if (filters.endDate) {
-    filteredDocs = filteredDocs.filter(
-      (doc) => new Date(doc.fecha) <= new Date(filters.endDate)
-    );
-  }
-  if (filters.career) {
-    filteredDocs = filteredDocs.filter(
-      (doc) => doc.carrera.toLowerCase() === filters.career.toLowerCase()
-    );
-  }
-  if (filters.class) {
-    filteredDocs = filteredDocs.filter(
-      (doc) => doc.asignatura.toLowerCase() === filters.class.toLowerCase()
-    );
-  }
-  const { vidDocs, docDocs, imgDocs } = docApartheid(filteredDocs);
-  return { vidDocs, docDocs, imgDocs };
 }
+
+
+async function fetchDocuments() {
+  try {
+    const response = await fetch('https://studlab.marcosruizrubio.com/documento');
+    if (!response.ok) {
+      throw new Error('Error al recuperar los documentos');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error al recuperar los documentos:", error);
+    throw error;
+  }
+}
+
+async function fetchUser() {
+  try {
+    const response = await fetch('https://studlab.marcosruizrubio.com/user');
+    if (!response.ok) {
+      throw new Error('Error al recuperar los usuarios');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error al recuperar los usuarios:", error);
+    throw error;
+  }
+}
+
 
 /**
  * Retrieves information about the creators of the filtered documents.
@@ -129,13 +151,15 @@ export function getDocs(filters) {
  * @param {Object} imgDocs - Image documents.
  * @returns {Array} - An array of creator information.
  */
-export function getRelatedProfiles(vidDocs, docDocs, imgDocs) {
+export async function getRelatedProfiles(videos, documentos, archivos) {
+
+  const usersData = await fetchUser();
+  console.log(usersData)
   const allDocs = [
-    ...vidDocs.documentos,
-    ...docDocs.documentos,
-    ...imgDocs.documentos,
+    ...videos,
+    ...documentos,
+    ...archivos,
   ];
-  const creatorsIDs = allDocs.map((doc) => doc.idusuario);
-  const creatorsInfo = UsersData.filter(user => creatorsIDs.includes(user.id));
-  return creatorsInfo;
+  const creators = allDocs.map((doc) => doc.idusuario);
+  return creators;
 }
