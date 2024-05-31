@@ -61,7 +61,7 @@ public class Documento
     private LocalDate fecha;
 
     @JsonIgnoreProperties(value = {"iddocumento", "idusuario", "handler", "hibernateLazyInitializer"}, allowSetters = true)
-    @OneToMany(mappedBy = "iddocumento")
+    @OneToMany(mappedBy = "iddocumento", orphanRemoval = true, cascade = CascadeType.REMOVE)
     private Set<Comentario> comentarios = new LinkedHashSet<>();
 
     public int getId()
