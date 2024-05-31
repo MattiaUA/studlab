@@ -37,6 +37,7 @@ public class UserService implements IUserService
     public User update(int id, User user) throws ChangeSetPersister.NotFoundException
     {
         if(!userRepository.existsById(id)) throw new ChangeSetPersister.NotFoundException();
+        user.setId(id);
         return userRepository.save(user);
     }
 
