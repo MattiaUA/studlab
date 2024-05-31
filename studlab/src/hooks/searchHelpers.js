@@ -154,7 +154,6 @@ async function fetchUser() {
 export async function getRelatedProfiles(videos, documentos, archivos) {
 
   const usersData = await fetchUser();
-  console.log(usersData)
   const allDocs = [
     ...videos,
     ...documentos,
