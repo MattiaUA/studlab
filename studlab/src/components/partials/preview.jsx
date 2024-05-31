@@ -46,7 +46,7 @@ function getFormat(format) {
     )
   } else {
     return (
-      <img src="../../../public/image-icon.png" className="icon-pic " />
+      <img src="/image-icon.png" className="icon-pic " />
     )
   }
 }
