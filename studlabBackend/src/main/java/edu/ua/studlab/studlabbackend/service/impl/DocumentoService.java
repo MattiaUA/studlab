@@ -30,6 +30,21 @@ public class DocumentoService implements IDocumentoService
     @Override
     public Documento save(Documento documento)
     {
+        if (documento.getDocumentourl().contains("mp4"))
+        {
+            documento.setFormato("mp4");
+            documento.setDocumentourl("video_demo.mp4");
+        }
+        else if (documento.getDocumentourl().contains("pdf"))
+        {
+            documento.setFormato("pdf");
+            documento.setDocumentourl("pdf_demo.pdf");
+        }
+        else if (documento.getDocumentourl().contains("png"))
+        {
+            documento.setFormato("png");
+            documento.setDocumentourl("imagen.png");
+        }
         return documentoRepository.save(documento);
     }
 
