@@ -3,20 +3,26 @@ import { useNavigate } from "react-router-dom";
 import ProfilePic from "./profile-pic";
 import { getSession } from "../../hooks/getSession";
 
-async function updateDocumentComments(documentId, newComment) {
+async function updateDocumentComments(newComment) {
     try {
-        const response = await fetch(`https://studlab.marcosruizrubio.com/documento/${documentId}/comentario`, {
+        const data = {
+            "iddocumento": { "id": newComment.iddocumento },
+            "idusuario": { "id": newComment.idusuario },
+            "fecha": "2024-05-29",
+            "comentario": newComment.comentario
+        };
+
+        const response = await fetch(`https://studlab.marcosruizrubio.com/comentario`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(newComment),
+            body: JSON.stringify(data),
         });
 
         if (!response.ok) {
             throw new Error("Error al actualizar el documento en el servidor");
         }
-
         const updatedDocument = await response.json();
         return updatedDocument;
     } catch (error) {
@@ -25,11 +31,28 @@ async function updateDocumentComments(documentId, newComment) {
 }
 
 function DocumentReelComments({ data }) {
-
-    const [comments, setComments] = useState(data.comentarios || []);
+    const [commentsRaw, setCommentsRaw] = useState(data.comentarios);
+    const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        async function fetchComments() {
+            try {
+                const commentsList = await Promise.all(
+                    commentsRaw.map(async (element) => {
+                        const response = await fetch(`https://studlab.marcosruizrubio.com/comentario/${element.id}`);
+                        return await response.json();
+                    })
+                );
+                setComments(commentsList);
+            } catch (error) {
+                console.error("Error fetching comments:", error);
+            }
+        }
+        fetchComments();
+    }, [commentsRaw]);
 
     useEffect(() => {
         async function checkSession() {
@@ -51,29 +74,25 @@ function DocumentReelComments({ data }) {
         if (newComment.trim() === "") return;
 
         const newCommentObj = {
-            id: comments.length + 1, // Unique ID for the new comment
             idusuario: user.id, // Assuming the user ID for the new comment
             iddocumento: data.id, // ID of the current document
             comentario: newComment,
             fecha: new Date().toISOString().substring(0, 10) // Current date as ISO string
         };
 
-        const updatedDocument = await updateDocumentComments(data.id, newCommentObj);
-        if (updatedDocument) {
-            setComments(updatedDocument.comentarios);
-        }
+        const updatedDocument = await updateDocumentComments(newCommentObj);
+        // Update comments locally after submission
+        setComments([...comments, updatedDocument]);
         setNewComment("");
     };
-
-    
 
     return (
         <div className="document-comments">
             {comments.map((element, index) => (
                 <div key={index}>
                     <div className="comment-header">
-                        <ProfilePic userid={element.idusuario} />
-                        <p><strong>{element.idusuario.nombre}</strong></p>
+                        <ProfilePic userid={element.idusuario.id} />
+                        <p><strong>{element.idusuario.nombre ? element.idusuario.nombre : user.nombre}</strong></p>
                     </div>
                     <p>{element.comentario}</p>
                     <p style={{ color: "#A2A2A2" }}>{element.fecha}</p>

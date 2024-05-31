@@ -13,13 +13,10 @@ function DocumentPage({docData,selfData}) {
 
     useEffect(() => {
         const loadDocumentData = async () => {
-          const { value } = await Preferences.get({ key: 'DocumentData' });
-          if (value) {
-            setDocs(JSON.parse(value));
-            console.log("DOCS",docs)
-            const tmpDoc = docs.documentos.find(doc => doc.id.toString() === id.toString());
-            console.log("DOC",tmpDoc)
-            setDoc(tmpDoc);
+          const response = await fetch(`https://studlab.marcosruizrubio.com/documento/${id}`);
+          if (response.ok) {
+            const data = await response.json()
+            setDoc(data);
           }
         };
         loadDocumentData();

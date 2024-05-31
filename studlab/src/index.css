@@ -285,7 +285,7 @@ iframe{
 }
 
 .carousel-scroll {
-  height: 100%;
+  height: 350px;
   display: flex;
   gap: 3px;
   overflow-x: auto;

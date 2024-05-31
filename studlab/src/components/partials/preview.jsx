@@ -5,7 +5,7 @@ import "./preview.css"
 // - Las letras salen del css
 export default function Preview(data) {
 
-  const { id, titulo,asignatura, carrera, comentarios, descripcion, fecha, formato, documentourl,imagendeportada, format,idusuario } = data.data
+  const { id,titulo,asignatura, carrera, comentarios, descripcion, fecha, formato, documentourl,imagendeportada, format,idusuario } = data.data
 
 
   return (

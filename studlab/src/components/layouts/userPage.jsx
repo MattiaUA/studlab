@@ -11,22 +11,32 @@ function UserPage() {
     const [docs, setDocs] = useState([]);
 
     useEffect(() => {
-        async function fetchUser() {
+        async function fetchUserAndDocuments() {
             try {
                 const response = await fetch(`https://studlab.marcosruizrubio.com/user/${id}`);
                 if (!response.ok) {
-                    throw new Error('Error al recuperar los documentos');
+                    throw new Error('Error al recuperar los datos del usuario');
                 }
                 const data = await response.json();
-                console.log(data);
                 setUser(data);
-                // Suponiendo que los documentos están anidados dentro del objeto de usuario como "documentos"
-                setDocs(data.documentos || []);
+
+                const documentDetailsPromises = data.documentos.map(doc => fetch(`https://studlab.marcosruizrubio.com/documento/${doc.id}`));
+                const documentResponses = await Promise.all(documentDetailsPromises);
+
+                const documentDetails = await Promise.all(documentResponses.map(res => {
+                    if (!res.ok) {
+                        throw new Error('Error al recuperar los detalles del documento');
+                    }
+                    return res.json();
+                }));
+
+                setDocs(documentDetails);
             } catch (error) {
-                console.log(error.message);
-            } 
+                console.error(error.message);
+            }
         }
-        fetchUser();
+
+        fetchUserAndDocuments();
     }, [id]);
 
     return (

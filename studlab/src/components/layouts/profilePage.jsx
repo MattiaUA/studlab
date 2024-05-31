@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import NavigationBar from "../partials/navigation-bar";
 import { getSession } from '../../hooks/getSession';
 import { Preferences } from '@capacitor/preferences';
-import { useNavigate } from "react-router";
 import Preview from '../partials/preview';
-
 
 function ProfilePage() {
     const navigate = useNavigate();
@@ -45,7 +44,7 @@ function ProfilePage() {
                         email: user.email,
                         telefono: user.telefono,
                         carrera: user.carrera
-                    })
+                    });
                 }
             } catch (error) {
                 console.error('Error loading user data:', error);
@@ -67,6 +66,7 @@ function ProfilePage() {
     const handleLogout = () => {
         Preferences.remove({ key: 'UserData' }).then(() => navigate("/login"));
     };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -75,13 +75,13 @@ function ProfilePage() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formValues) // Use formValues directly
+                body: JSON.stringify(formValues)
             });
-    
+
             if (!response.ok) {
                 throw new Error('Error updating user');
             }
-    
+
             const updatedUser = await response.json();
             setUser(updatedUser);
             setFormValues({
@@ -97,11 +97,22 @@ function ProfilePage() {
         }
     };
 
-    const handleDelete = (id) => {
-        // Lógica para eliminar el documento con el ID proporcionado
-        console.log(`Eliminar documento con ID: ${id}`);
-    };
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`https://studlab.marcosruizrubio.com/documento/${id}`, {
+                method: "DELETE"
+            });
 
+            if (!response.ok) {
+                throw new Error('Error deleting document');
+            }
+
+            setDocuments(prevDocs => prevDocs.filter(doc => doc.id !== id));
+            console.log(`Documento con ID: ${id} eliminado`);
+        } catch (error) {
+            console.error(`Error al eliminar el documento con ID: ${id}`, error);
+        }
+    };
 
     return (
         <div className="profile-page">
@@ -153,7 +164,6 @@ function ProfilePage() {
                                 <label>Carrera:</label>
                                 <input className='search-input' type="text" name="carrera" value={formValues.carrera} disabled />
                             </div>
-
                         </div>
                     )}
                 </div>
@@ -164,12 +174,11 @@ function ProfilePage() {
                 {Array.isArray(docs) && docs.map((prev, index) => (
                     <div key={index}>
                         <Preview key={index} data={prev} />
-                        <button className='search-input'>Eliminar</button>
+                        <button className='search-input' onClick={() => handleDelete(prev.id)}>Eliminar</button>
                     </div>
                 ))}
             </div>
-
-            <NavigationBar></NavigationBar>
+            <NavigationBar />
         </div>
     );
 }

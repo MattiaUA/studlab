@@ -9,15 +9,14 @@ function findUser(id) {
 }
 
 function DocumentInfo({ data }) {
-    const user = findUser(data.idusuario);
     return (
         <div className="document-info">
             <div className="document-info-header">
                 <div>
                     <h1>{data.titulo}</h1>
-                    <h2>{user.nombre}</h2>
+                    <h2>{data.idusuario.nombre}</h2>
                 </div>
-                <ProfilePic userid={user.id}></ProfilePic>
+                <ProfilePic userid={data.idusuario.id}></ProfilePic>
             </div>
             <br></br>
             <p>{data.descripcion}</p>
