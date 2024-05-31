@@ -13,6 +13,7 @@ import java.util.Set;
 public class Documento
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
 
@@ -36,7 +37,7 @@ public class Documento
     @Column(name = "visualizaciones")
     private int visualizaciones;
 
-    @Size(max = 255)
+    @Size(max = 1000)
     @Column(name = "documentourl")
     private String documentourl;
 
@@ -60,7 +61,7 @@ public class Documento
     private LocalDate fecha;
 
     @JsonIgnoreProperties(value = {"iddocumento", "idusuario", "handler", "hibernateLazyInitializer"}, allowSetters = true)
-    @OneToMany(mappedBy = "iddocumento")
+    @OneToMany(mappedBy = "iddocumento", orphanRemoval = true, cascade = CascadeType.REMOVE)
     private Set<Comentario> comentarios = new LinkedHashSet<>();
 
     public int getId()

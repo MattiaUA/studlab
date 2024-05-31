@@ -43,7 +43,7 @@ function NavigationBar() {
             {user ? (
               <img src={user.fotourl} alt='Foto de perfil del usuario' />
             ) : (
-              <img src="../../../public/user.png" alt='Foto de perfil por defecto' />
+              <img src="/user.png" alt='Foto de perfil por defecto' />
             )}
           </div>
         </Link>

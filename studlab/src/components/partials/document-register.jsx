@@ -56,9 +56,10 @@ function DocumentRegister({ userData, documentData }) {
     const newDocument = {
       titulo,
       id: documentData.documentos.length + 1,
-      idusuario: user.id,
+      idusuario: {"id": JSON.parse(user.value).id},
       descripcion,
-      imagendeportada: coverImage ? URL.createObjectURL(coverImage) : "",
+      //imagendeportada: coverImage ? URL.createObjectURL(coverImage) : "",
+      imagendeportada: "https://fastly.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs",
       visualizaciones: 0,
       documentourl: file ? URL.createObjectURL(file) : "",
       formato,
@@ -74,6 +75,19 @@ function DocumentRegister({ userData, documentData }) {
     };
 
     try {
+      fetch('https://studlab.marcosruizrubio.com/documento', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newDocument),
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
       await Preferences.set({ key: 'DocumentData', value: JSON.stringify(updatedDocuments) });
       alert("Documento subido con éxito");
     } catch (error) {

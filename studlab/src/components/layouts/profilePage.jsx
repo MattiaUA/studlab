@@ -75,13 +75,13 @@ function ProfilePage() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formValues)
+                body: JSON.stringify(formValues) // Use formValues directly
             });
-
+    
             if (!response.ok) {
                 throw new Error('Error updating user');
             }
-
+    
             const updatedUser = await response.json();
             setUser(updatedUser);
             setFormValues({
