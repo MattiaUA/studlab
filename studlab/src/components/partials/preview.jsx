@@ -4,25 +4,26 @@ import "./preview.css"
 
 // - Las letras salen del css
 export default function Preview(data) {
-  const { DocId, userId, title, docImg, theme, userName, userPicture, format } = data.data
+
+  const { id, titulo,asignatura, carrera, comentarios, descripcion, fecha, formato, documentourl,imagendeportada, format,idusuario } = data.data
 
 
   return (
     <div className="preview-element-container">
       <div className="preview-img-container">
-        {getFormat(format)}
-        <Link to={`/preview/${DocId}`}>
-          <img className="bg-image" src={docImg} alt="Document Background Picture" />
+        {getFormat(formato)}
+        <Link to={`/preview/${id}`}>
+          <img className="bg-image" src={imagendeportada} alt="Document Background Picture" />
         </Link>
         <div className="profile-pic profile-pic-prev">
-          <ProfilePic user={{ id: userId, fotourl: userPicture }} />
+          <ProfilePic userid={idusuario.id} />
         </div>
       </div>
       <div style={{ padding: "5px" }}>
-        <strong>{title}</strong>
+        <strong>{titulo}</strong>
         <div className="disp-flex-space-between">
           <div className="name-containe">
-            <p>{userName}</p>
+            <p>{idusuario.nombre}</p>
           </div>
           <div className="add-img-container">
             <img src="/add.png" className="add-pic" />

@@ -17,7 +17,7 @@ function DocumentInfo({ data }) {
                     <h1>{data.titulo}</h1>
                     <h2>{user.nombre}</h2>
                 </div>
-                <ProfilePic user={user}></ProfilePic>
+                <ProfilePic userid={user.id}></ProfilePic>
             </div>
             <br></br>
             <p>{data.descripcion}</p>

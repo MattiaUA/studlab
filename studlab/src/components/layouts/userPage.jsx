@@ -1,29 +1,34 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import NavigationBar from "../partials/navigation-bar";
-import { getSession } from '../../hooks/getSession';
-import { Preferences } from '@capacitor/preferences';
-import { useNavigate } from "react-router";
-import UsersData from '../../exampledata/Users.json';
-import DocumentData from '../../exampledata/Documents.json'
 import Preview from '../partials/preview';
-import parsePrev from './../../hooks/parsePrev';
 
-function UserPage({ docData }) {
+function UserPage() {
+    
     const { id } = useParams();
-    const userId = parseInt(id);
-    const user = UsersData.find(user => user.id === userId);
-    const documentos = DocumentData.documentos.filter(doc => doc.idusuario === userId);
-    const parse = documentos.map(doc => ({
-        DocId: doc.id,
-        userId: user.id,
-        title: doc.titulo,
-        docImg: doc.imagendeportada,
-        theme: doc.tema,
-        userName: user.nombre,
-        userPicture: user.fotourl,
-        format: doc.formato,
-    }));
+
+    const [user, setUser] = useState(null);
+    const [docs, setDocs] = useState([]);
+
+    useEffect(() => {
+        async function fetchUser() {
+            try {
+                const response = await fetch(`https://studlab.marcosruizrubio.com/user/${id}`);
+                if (!response.ok) {
+                    throw new Error('Error al recuperar los documentos');
+                }
+                const data = await response.json();
+                console.log(data);
+                setUser(data);
+                // Suponiendo que los documentos están anidados dentro del objeto de usuario como "documentos"
+                setDocs(data.documentos || []);
+            } catch (error) {
+                console.log(error.message);
+            } 
+        }
+        fetchUser();
+    }, [id]);
+
     return (
         <div className="profile-page">
             {user ? (
@@ -57,17 +62,13 @@ function UserPage({ docData }) {
                 <p>Cargando...</p>
             )}
             <div className='previews'>
-                {/* Mapear y mostrar los documentos */}
-                {parse.map((prev, index) => (
-                    <div >
-                        <Preview key={index} data={prev} />
-                    </div>
+                {docs.map((prev, index) => (
+                    <Preview key={index} data={prev} />
                 ))}
             </div>
-            <NavigationBar></NavigationBar>
+            <NavigationBar />
         </div>
     );
 }
-
 
 export default UserPage;

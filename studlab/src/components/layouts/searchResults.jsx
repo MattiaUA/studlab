@@ -1,28 +1,55 @@
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavigationBar from "../partials/navigation-bar";
 import SearchBar from "../partials/searchBar";
-import parsePrev from "../../hooks/parsePrev";
 import ProfilePic from "../partials/profile-pic";
 import PreviewCarousel from "../partials/previewCarousel";
 
 import * as searchHelpers from '../../hooks/searchHelpers'
 
-export default function SearchResults({ docData, userData }) {
+export default function SearchResults() {
+
+  const [docsRaw, setDocuments] = useState({});
+  const [relatedProfiles, setRelatedProfiles] = useState([]);
+  const [vidDocsR, setVids] = useState([]);
+  const [docDocsR, setDocs] = useState([]);
+  const [imgDocsR, setimgDocs] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch('https://studlab.marcosruizrubio.com/documento');
+        if (!response.ok) {
+          throw new Error('Error al recuperar los documentos');
+        }
+        const data = await response.json();
+        setDocuments(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  }, []);
+
   const location = useLocation();
   const incomingFilters = location.state?.filters;
 
-  // APPLYING FILTERS
-  const { vidDocs, docDocs, imgDocs } = searchHelpers.getDocs(incomingFilters, docData);
+  useEffect(() => {
+    async function getProfiles() {
+      try {
+        const { vidDocs, docDocs, imgDocs } = await searchHelpers.getDocs(incomingFilters);
+        setDocs(docDocs);
+        setVids(vidDocs);
+        setimgDocs(imgDocs);
 
-  // Creating the carousels
-  const videoPrevData = parsePrev(vidDocs, userData);
-  const docPrevData = parsePrev(docDocs, userData);
-  const imgPrevData = parsePrev(imgDocs, userData);
-
-  // Getting relared profiles
-  const relatedProfiles = searchHelpers.getRelatedProfiles(vidDocs, docDocs, imgDocs);
-  console.log("La info de los creadores: ", relatedProfiles)
+        const creators  = await searchHelpers.getRelatedProfiles(vidDocs, docDocs, imgDocs);
+        setRelatedProfiles(creators);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getProfiles();
+  }, []);
 
   const [filters, setFilters] = useState({
     search: "",
@@ -46,39 +73,39 @@ export default function SearchResults({ docData, userData }) {
       <strong style={{ margin: '0 0 2% 4%' }}>Perfiles relacionados</strong>
       <div className="related-profiles-container">
         {relatedProfiles.map((userData, idx) =>
-          <ProfilePic user={userData} key={idx}></ProfilePic>
+          <ProfilePic userid={userData.id} key={idx}></ProfilePic>
         )}
       </div>
 
       <strong style={{ margin: '5% 0 0 4%' }}>Resultados</strong>
       <p style={{ margin: '0 0 0 4%' }}>Videos</p>
-      {videoPrevData.length > 0 ? (
+      {vidDocsR.length > 0 ? (
         <>
-          <PreviewCarousel data={videoPrevData}></PreviewCarousel>
+          <PreviewCarousel data={vidDocsR}></PreviewCarousel>
           <button className="view-all-btn">Ver todos los videos</button>
         </>
       ) : (
-        <p style={{ margin: '0 0 0 4%', color:'#4966FF'}} >Ups, o hay vídeos</p>
+        <p style={{ margin: '0 0 0 4%', color: '#4966FF' }} >Ups, o hay vídeos</p>
       )}
 
-      {docPrevData.length > 0 ? (
+      {docDocsR.length > 0 ? (
         <>
           <p style={{ margin: '3% 0 0 4%' }}>Documentos</p>
-          <PreviewCarousel data={docPrevData}></PreviewCarousel>
+          <PreviewCarousel data={docDocsR}></PreviewCarousel>
           <button className="view-all-btn">Ver todos los documentos</button>
         </>
       ) : (
-        <p style={{ margin: '0 0 0 4%', color:'#4966FF'}} >Ups, no hay documentos</p>
+        <p style={{ margin: '0 0 0 4%', color: '#4966FF' }} >Ups, no hay documentos</p>
       )}
 
-      {imgPrevData.length > 0 ? (
+      {imgDocsR.length > 0 ? (
         <>
           <p style={{ margin: '3% 0 0 4%' }}>Imágenes</p>
-          <PreviewCarousel data={imgPrevData}></PreviewCarousel>
+          <PreviewCarousel data={imgDocsR}></PreviewCarousel>
           <button className="view-all-btn">Ver todas las imágenes</button>
         </>
       ) : (
-        <p style={{ margin: '4% 0 0 4%', color:'#4966FF'}} >Ups, no hay imágenes</p>
+        <p style={{ margin: '4% 0 0 4%', color: '#4966FF' }} >Ups, no hay imágenes</p>
       )}
       <NavigationBar />
     </div>
