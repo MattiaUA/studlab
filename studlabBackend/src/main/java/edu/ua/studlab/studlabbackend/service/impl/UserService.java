@@ -30,6 +30,7 @@ public class UserService implements IUserService
     @Override
     public User save(User user)
     {
+        user.setFotourl("https://fastly.picsum.photos/id/9/150/150.jpg?hmac=apemF25iF2NOJDpnV-bDx6V28WnNVpjWDq10PO1Mn3A");
         return userRepository.save(user);
     }
 

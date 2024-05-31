@@ -36,7 +36,7 @@ public class User
     @Column(name = "carrera")
     private String carrera;
 
-    @Size(max = 255)
+    @Size(max = 1000)
     @Column(name = "fotourl")
     private String fotourl;
 
