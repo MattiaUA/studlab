@@ -36,7 +36,9 @@ function docApartheid(docs) {
   let vidDocs = [];
   let docDocs = [];
   let imgDocs = [];
-  docs.forEach((doc) => {
+  docs.forEach((doc, index) => {
+    console.log('Doc, index', doc[index].formato)
+    console.log(index)
     if (["avi", "mp4"].includes(doc.formato)) {
       vidDocs.push(doc);
     } else if (["png", "jpeg", "jpg"].includes(doc.formato)) {
@@ -69,6 +71,7 @@ export async function getDocs(filters) {
     const usersData = await fetchUser();
 
     let filteredDocs = documentData;
+    let filterArray = [];
 
     if (filters.search && filters.search !== "") {
       const searchWords = filters.search.toLowerCase().split(" ");
@@ -80,33 +83,33 @@ export async function getDocs(filters) {
     }
 
     if (filters.vid) {
-      filteredDocs = filteredDocs.filter((doc) => ["avi", "mp4"].includes(doc.formato));
+      filterArray = [...filterArray, filteredDocs.filter((doc) => ["avi", "mp4"].includes(doc.formato))]
     }
 
     if (filters.img) {
-      filteredDocs = filteredDocs.filter((doc) => ["png", "jpeg", "jpg"].includes(doc.formato));
+      filterArray = [...filterArray, filteredDocs.filter((doc) => ["png", "jpeg", "jpg"].includes(doc.formato))]
     }
 
     if (filters.doc) {
-      filteredDocs = filteredDocs.filter((doc) => ["txt", "docx", "pdf"].includes(doc.formato));
+      filterArray = [...filterArray, filteredDocs.filter((doc) => ["txt", "docx", "pdf"].includes(doc.formato))]
     }
 
     if (filters.startDate) {
-      filteredDocs = filteredDocs.filter((doc) => new Date(doc.fecha) >= new Date(filters.startDate));
+      filterArray = [...filterArray, filteredDocs.filter((doc) => new Date(doc.fecha) >= new Date(filters.startDate))]
     }
 
     if (filters.endDate) {
-      filteredDocs = filteredDocs.filter((doc) => new Date(doc.fecha) <= new Date(filters.endDate));
+      filterArray = [...filterArray, filteredDocs.filter((doc) => new Date(doc.fecha) <= new Date(filters.endDate))]
     }
 
     if (filters.career) {
-      filteredDocs = filteredDocs.filter((doc) => doc.carrera.toLowerCase() === filters.career.toLowerCase());
+      filterArray = [...filterArray, filteredDocs.filter((doc) => doc.carrera.toLowerCase() === filters.career.toLowerCase())]
     }
 
     if (filters.class) {
-      filteredDocs = filteredDocs.filter((doc) => doc.asignatura.toLowerCase() === filters.class.toLowerCase());
+      filterArray = [...filterArray, filteredDocs.filter((doc) => doc.asignatura.toLowerCase() === filters.class.toLowerCase())]
     }
-    const { vidDocs, docDocs, imgDocs } = docApartheid(filteredDocs);
+    const { vidDocs, docDocs, imgDocs } = docApartheid(filterArray);
     return { vidDocs, docDocs, imgDocs };
   } catch (error) {
     console.error("Error al obtener los documentos:", error);

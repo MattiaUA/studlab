@@ -2,11 +2,14 @@ package edu.ua.studlab.studlabbackend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "Comentarios", schema = "studlab")
+@Table(name = "comentarios", schema = "studlab")
 public class Comentario
 {
     @Id
